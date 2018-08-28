@@ -19,6 +19,7 @@ new Vue({
 // Unit test
 import chai from 'chai';
 import spies from 'chai-spies';
+chai.use(spies);
 const expect = chai.expect;
 {
     const Constructor = Vue.extend(Button);
