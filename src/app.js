@@ -18,6 +18,7 @@ new Vue({
 
 // Unit test
 import chai from 'chai';
+import spies from 'chai-spies';
 const expect = chai.expect;
 {
     const Constructor = Vue.extend(Button);
@@ -93,9 +94,14 @@ const expect = chai.expect;
         }
     });
     owButton.$mount();
-    owButton.$on('click', function() {
-        console.log(1);
-    });
 
+    let spy = chai.spy(function() {});
+
+    owButton.$on('click', spy);
     owButton.$el.click();
+
+    expect(spy).to.have.been.called();
+
+    button.$el.remove();
+    button.$destroy();
 }
