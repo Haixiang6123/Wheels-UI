@@ -1,9 +1,9 @@
 <template>
     <button class="ow-button" :class="{[`icon-${iconPosition}`]: true}">
-        <ow-icon v-if="icon" :name="icon"/>
-        <div class="content">
+        <ow-icon class="icon" v-if="icon" :name="icon"/>
+        <span class="content">
             <slot></slot>
-        </div>
+        </span>
     </button>
 </template>
 
