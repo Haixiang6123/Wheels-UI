@@ -1,8 +1,9 @@
 <template>
     <button class="ow-button" :class="{[`icon-${iconPosition}`]: true}">
         <ow-icon class="icon" v-if="icon" :name="icon"/>
+        <ow-icon class="loading" name="loading"/>
         <span class="content">
-            <slot></slot>
+            <slot/>
         </span>
     </button>
 </template>
@@ -23,6 +24,16 @@
 </script>
 
 <style lang="scss">
+    @keyframes spin {
+        0% {
+            transform: rotate(0);
+        }
+        
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
     .ow-button {
         font-size: var(--font-size);
         height: var(--button-height);
@@ -62,6 +73,10 @@
                 margin-right: 0;
                 margin-left: .1em;
             }
+        }
+
+        .loading {
+            animation: spin 2s infinite linear;
         }
     }
 </style>
