@@ -14,4 +14,88 @@ new Vue({
         loading2: true,
         loading3: false,
     }
-})
+});
+
+// Unit test
+import chai from 'chai';
+const expect = chai.expect;
+{
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+       propsData: {
+           icon: 'settings'
+       }
+    });
+    button.$mount();
+
+    let useElement = button.$el.querySelector('use');
+    expect(useElement.getAttribute('xlink:href')).to.eq('#i-settings');
+    button.$el.remove();
+    button.$destroy();
+}
+{
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'settings',
+            loading: true
+        }
+    });
+    button.$mount();
+
+    let useElement = button.$el.querySelector('use');
+    expect(useElement.getAttribute('xlink:href')).to.eq('#i-loading');
+    button.$el.remove();
+    button.$destroy();
+}
+{
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'settings',
+        }
+    });
+    button.$mount(div);
+
+    let svg = button.$el.querySelector('svg');
+    let { order } = window.getComputedStyle(svg);
+    expect(order).to.eq("1");
+    button.$el.remove();
+    button.$destroy();
+}
+{
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'settings',
+            iconPosition: 'right'
+        }
+    });
+    button.$mount(div);
+
+    let svg = button.$el.querySelector('svg');
+    let { order } = window.getComputedStyle(svg);
+    expect(order).to.eq("2");
+    button.$el.remove();
+    button.$destroy();
+}
+{
+    const Constructor = Vue.extend(Button);
+    const owButton = new Constructor({
+        propsData: {
+            icon: 'settings',
+        }
+    });
+    owButton.$mount();
+    owButton.$on('click', function() {
+        console.log(1);
+    });
+
+    owButton.$el.click();
+}
