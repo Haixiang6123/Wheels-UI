@@ -33,17 +33,17 @@
         0% {
             transform: rotate(0);
         }
-        
+
         100% {
             transform: rotate(360deg);
         }
     }
-    
+
     .ow-button {
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;
-        border-radius: var(--border-radis);
+        border-radius: var(--border-radius);
         border: 1px solid var(--border-color);
         background: var(--button-bg);
         display: inline-flex;
