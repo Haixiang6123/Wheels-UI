@@ -29,28 +29,6 @@
             font-size: var(--font-size);
         }
     </style>
-    <style>
-        .ow-button {
-            font-size: var(--font-size);
-            height: var(--button-height);
-            padding: 0 1em;
-            border-radius: var(--border-radis);
-            border: 1px solid var(--border-color);
-            background: var(--button-bg);
-        }
-
-        .ow-button:hover {
-            border-color: var(--border-color-hover);
-        }
-
-        .ow-button:active {
-            background-color: var(--button-active-bg);
-        }
-
-        .ow-button:focus {
-            outline: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -58,14 +36,6 @@
     <ow-button></ow-button>
 </div>
 
-<script src="./node_modules/vue/dist/vue.min.js"></script>
-<script src="button.js"></script>
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-        }
-    })
-</script>
+<script src="src/app.js"></script>
 </body>
 </html>
