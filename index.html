@@ -33,13 +33,13 @@
 <body>
 
 <div id="app">
-    <ow-button icon="remove" icon-position="left">
+    <ow-button :loading="loading1" @click="loading1 = !loading1">
         Button
     </ow-button>
-    <ow-button icon="remove" icon-position="right">
+    <ow-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
         Button
     </ow-button>
-    <ow-button>
+    <ow-button :loading="loading3" @click="loading3 = !loading3" :loading="true" icon-position="right">
         Button
     </ow-button>
 

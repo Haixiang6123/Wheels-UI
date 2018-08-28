@@ -1,7 +1,8 @@
 <template>
-    <button class="ow-button" :class="{[`icon-${iconPosition}`]: true}">
-        <ow-icon class="icon" v-if="icon" :name="icon"/>
-        <ow-icon class="loading" name="loading"/>
+    <button class="ow-button" :class="{[`icon-${iconPosition}`]: true}"
+        @click="$emit('click')">
+        <ow-icon class="icon" v-if="icon && !loading" :name="icon"/>
+        <ow-icon v-if="loading" class="loading icon" name="loading"/>
         <span class="content">
             <slot/>
         </span>
@@ -11,6 +12,10 @@
 <script>
     export default {
         props: {
+            loading: {
+                type: Boolean,
+                default: false
+            },
             icon: {},
             iconPosition: {
                 type: String,
