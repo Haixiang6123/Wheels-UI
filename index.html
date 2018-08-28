@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wheels UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radis: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
+        }
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size);
+        }
+    </style>
+    <style>
+        .ow-button {
+            font-size: var(--font-size);
+            height: var(--button-height);
+            padding: 0 1em;
+            border-radius: var(--border-radis);
+            border: 1px solid var(--border-color);
+            background: var(--button-bg);
+        }
+
+        .ow-button:hover {
+            border-color: var(--border-color-hover);
+        }
+
+        .ow-button:active {
+            background-color: var(--button-active-bg);
+        }
+
+        .ow-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <ow-button></ow-button>
+</div>
+
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script src="button.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+        }
+    })
+</script>
+</body>
+</html>
