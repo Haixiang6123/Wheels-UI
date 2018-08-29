@@ -103,6 +103,6 @@ const expect = chai.expect;
 
     expect(spy).to.have.been.called();
 
-    button.$el.remove();
-    button.$destroy();
+    owButton.$el.remove();
+    owButton.$destroy();
 }

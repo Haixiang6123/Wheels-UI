@@ -15,5 +15,6 @@
     .ow-icon {
         height: 1em;
         width: 1em;
+        fill: var(--color);
     }
 </style>
