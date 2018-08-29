@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wheels UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #212121;
+            --border-color: #212121;
+            --border-color-hover: #666;
+        }
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size);
+        }
+    </style>
+<link rel="stylesheet" href="/app.f6ebda1d.css"></head>
+<body>
+
+<div id="app">
+    <ow-button :loading="loading1" @click="loading1 = !loading1">
+        Button
+    </ow-button>
+    <ow-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
+        Button
+    </ow-button>
+    <ow-button :loading="loading3" @click="loading3 = !loading3" icon-position="right">
+        Button
+    </ow-button>
+
+    <ow-button-group>
+        <ow-button icon="up">
+            Up
+        </ow-button>
+        <ow-button>
+            More
+        </ow-button>
+        <ow-button icon="down">
+            Down
+        </ow-button>
+    </ow-button-group>
+    <ow-icon name="download"></ow-icon>
+</div>
+
+<script src="/app.f6ebda1d.js"></script>
+<script src="//at.alicdn.com/t/font_812986_j8n9iohqjd.js"></script>
+</body>
+</html>

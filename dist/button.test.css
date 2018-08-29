@@ -1,0 +1,41 @@
+.ow-icon {
+  height: 1em;
+  width: 1em;
+  fill: var(--color); }
+@keyframes spin {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+
+.ow-button {
+  font-size: var(--font-size);
+  height: var(--button-height);
+  padding: 0 1em;
+  color: var(--color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background: var(--button-bg);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top; }
+  .ow-button:hover {
+    border-color: var(--border-color-hover); }
+  .ow-button:active {
+    background-color: var(--button-active-bg); }
+  .ow-button:focus {
+    outline: none; }
+  .ow-button > .content {
+    order: 2; }
+  .ow-button > .icon {
+    order: 1;
+    margin-right: .1em; }
+  .ow-button.icon-right > .content {
+    order: 1; }
+  .ow-button.icon-right > .icon {
+    order: 2;
+    margin-right: 0;
+    margin-left: .1em; }
+  .ow-button .loading {
+    animation: spin 2s infinite linear; }
