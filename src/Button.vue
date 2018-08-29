@@ -10,6 +10,8 @@
 </template>
 
 <script>
+    import Icon from './Icon';
+
     export default {
         props: {
             loading: {
@@ -24,6 +26,9 @@
                     return value === 'left' || value === 'right';
                 }
             }
+        },
+        components: {
+            'ow-icon': Icon
         }
     };
 </script>
