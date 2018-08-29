@@ -190,7 +190,7 @@ exports.default = {
     
         /* template */
         Object.assign($e03106, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"ow-button",class:( _obj = {}, _obj[("icon-" + _vm.iconPosition)] = true, _obj ),on:{"click":function($event){_vm.$emit('click')}}},[(_vm.icon && !_vm.loading)?_c('ow-icon',{staticClass:"icon",attrs:{"name":_vm.icon}}):_vm._e(),_vm._v(" "),(_vm.loading)?_c('ow-icon',{staticClass:"loading icon",attrs:{"name":"loading"}}):_vm._e(),_vm._v(" "),_c('span',{staticClass:"content"},[_vm._t("default")],2)],1)
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"ow-button aaa",class:( _obj = {}, _obj[("icon-" + _vm.iconPosition)] = true, _obj ),on:{"click":function($event){_vm.$emit('click')}}},[(_vm.icon && !_vm.loading)?_c('ow-icon',{staticClass:"icon",attrs:{"name":_vm.icon}}):_vm._e(),_vm._v(" "),(_vm.loading)?_c('ow-icon',{staticClass:"loading icon",attrs:{"name":"loading"}}):_vm._e(),_vm._v(" "),_c('span',{staticClass:"content"},[_vm._t("default")],2)],1)
 var _obj;}
 var staticRenderFns = []
 

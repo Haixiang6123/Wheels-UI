@@ -1,3 +1,7 @@
+.ow-icon {
+  height: 1em;
+  width: 1em;
+  fill: var(--color); }
 @keyframes spin {
   0% {
     transform: rotate(0); }
@@ -51,7 +55,3 @@
     .ow-button-group > .ow-button:hover {
       position: relative;
       z-index: 1; }
-.ow-icon {
-  height: 1em;
-  width: 1em;
-  fill: var(--color); }
