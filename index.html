@@ -16,9 +16,9 @@
             --button-bg: white;
             --button-active-bg: #eee;
             --border-radius: 4px;
-            --color: #3E474B;
-            --border-color: #3E474B;
-            --border-color-hover: #666;
+            --color: #42B983;
+            --border-color: #42B983;
+            --border-color-hover: #42B983;
         }
 
         #app {
@@ -33,28 +33,28 @@
 <body>
 
 <div id="app">
-    <ow-button :loading="loading1" @click="loading1 = !loading1">
+    <w-button :loading="loading1" @click="loading1 = !loading1">
         Button
-    </ow-button>
-    <ow-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
+    </w-button>
+    <w-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
         Button
-    </ow-button>
-    <ow-button :loading="loading3" @click="loading3 = !loading3" :loading="true" icon-position="right">
+    </w-button>
+    <w-button :loading="loading3" @click="loading3 = !loading3" :loading="true" icon-position="right">
         Button
-    </ow-button>
+    </w-button>
 
-    <ow-button-group>
-        <ow-button icon="up">
+    <w-button-group>
+        <w-button icon="up">
             Up
-        </ow-button>
-        <ow-button>
+        </w-button>
+        <w-button>
             More
-        </ow-button>
-        <ow-button icon="down">
+        </w-button>
+        <w-button icon="down">
             Down
-        </ow-button>
-    </ow-button-group>
-    <ow-icon name="download"></ow-icon>
+        </w-button>
+    </w-button-group>
+    <w-icon name="dwnload"></w-icon>
 </div>
 
 <script src="src/app.js"></script>

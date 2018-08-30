@@ -1,8 +1,8 @@
 <template>
-    <button class="ow-button" :class="{[`icon-${iconPosition}`]: true}"
+    <button class="w-button" :class="{[`icon-${iconPosition}`]: true}"
         @click="$emit('click')">
-        <ow-icon class="icon" v-if="icon && !loading" :name="icon"/>
-        <ow-icon v-if="loading" class="loading icon" name="loading"/>
+        <w-icon class="icon" v-if="icon && !loading" :name="icon"/>
+        <w-icon v-if="loading" class="loading icon" name="loading"/>
         <span class="content">
             <slot/>
         </span>
@@ -28,7 +28,7 @@
             }
         },
         components: {
-            'ow-icon': Icon
+            'w-icon': Icon
         }
     };
 </script>
@@ -44,7 +44,7 @@
         }
     }
 
-    .ow-button {
+    .w-button {
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;

@@ -10332,7 +10332,7 @@ exports.default = {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("svg", { staticClass: "ow-icon" }, [
+  return _c("svg", { staticClass: "w-icon" }, [
     _c("use", { attrs: { "xlink:href": "#i-" + _vm.name } })
   ])
 }
@@ -10398,7 +10398,7 @@ exports.default = {
         }
     },
     components: {
-        'ow-icon': _Icon2.default
+        'w-icon': _Icon2.default
     }
 }; //
 //
@@ -10426,7 +10426,7 @@ exports.default = {
   return _c(
     "button",
     {
-      staticClass: "ow-button",
+      staticClass: "w-button",
       class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj),
       on: {
         click: function($event) {
@@ -10436,11 +10436,11 @@ exports.default = {
     },
     [
       _vm.icon && !_vm.loading
-        ? _c("ow-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        ? _c("w-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
         : _vm._e(),
       _vm._v(" "),
       _vm.loading
-        ? _c("ow-icon", {
+        ? _c("w-icon", {
             staticClass: "loading icon",
             attrs: { name: "loading" }
           })
@@ -10541,7 +10541,7 @@ exports.default = {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ow-button-group" }, [_vm._t("default")], 2)
+  return _c("div", { staticClass: "w-button-group" }, [_vm._t("default")], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10597,9 +10597,9 @@ var _Icon2 = _interopRequireDefault(_Icon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.component('ow-icon', _Icon2.default);
-_vue2.default.component('ow-button', _Button2.default);
-_vue2.default.component('ow-button-group', _ButtonGroup2.default);
+_vue2.default.component('w-icon', _Icon2.default);
+_vue2.default.component('w-button', _Button2.default);
+_vue2.default.component('w-button-group', _ButtonGroup2.default);
 
 new _vue2.default({
     el: '#app',
@@ -10638,7 +10638,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57899' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '62308' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

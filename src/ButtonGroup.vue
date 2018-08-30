@@ -1,5 +1,5 @@
 <template>
-    <div class="ow-button-group">
+    <div class="w-button-group">
         <slot/>
     </div>
 </template>
@@ -18,11 +18,11 @@
 </script>
 
 <style lang="scss">
-    .ow-button-group {
+    .w-button-group {
         display: inline-flex;
         vertical-align: middle;
 
-        > .ow-button {
+        > .w-button {
             border-radius: 0;
             &:not(:first-child) {
                 margin-left: -1px;

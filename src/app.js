@@ -3,9 +3,9 @@ import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import Icon from './Icon';
 
-Vue.component('ow-icon', Icon);
-Vue.component('ow-button', Button);
-Vue.component('ow-button-group', ButtonGroup);
+Vue.component('w-icon', Icon);
+Vue.component('w-button', Button);
+Vue.component('w-button-group', ButtonGroup);
 
 new Vue({
     el: '#app',
