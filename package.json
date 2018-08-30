@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Haixiang6123/Wheels-UI.git"
+    "url": "git+https://github.com/Haixiang6123/wheel-ui.git"
   },
   "keywords": [
     "vue",
@@ -18,9 +18,9 @@
   "author": "Haixiang Yan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Haixiang6123/Wheels-UI/issues"
+    "url": "https://github.com/Haixiang6123/wheel-ui/issues"
   },
-  "homepage": "https://github.com/Haixiang6123/Wheels-UI#readme",
+  "homepage": "https://github.com/Haixiang6123/wheel-ui#readme",
   "dependencies": {
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.0"
