@@ -10701,16 +10701,16 @@ exports.default = {
         domProps: { value: _vm.value },
         on: {
           change: function($event) {
-            _vm.$emit("change", $event)
+            _vm.$emit("change", $event.target.value)
           },
           input: function($event) {
-            _vm.$emit("input", $event)
+            _vm.$emit("input", $event.target.value)
           },
           focus: function($event) {
-            _vm.$emit("focus", $event)
+            _vm.$emit("focus", $event.target.value)
           },
           blur: function($event) {
-            _vm.$emit("blur", $event)
+            _vm.$emit("blur", $event.target.value)
           }
         }
       }),
@@ -10803,7 +10803,8 @@ new _vue2.default({
     data: {
         loading1: false,
         loading2: true,
-        loading3: false
+        loading3: false,
+        message: 'hi'
     },
     methods: {
         inputChange: function inputChange(e) {

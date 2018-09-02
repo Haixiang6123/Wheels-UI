@@ -39,7 +39,9 @@
 <div id="app">
     <div class="box">
         <w-input value="Someone"></w-input>
-        <w-input value="Event" @change="inputChange"></w-input>
+        <w-input v-model="message"></w-input>
+        <p>{{message}}</p>
+        <button @click="message+=1">111</button>
     </div>
     <div class="box">
         <w-input value="Someone" error="Name is invalid!"></w-input>

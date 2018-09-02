@@ -76,12 +76,18 @@ describe('Input', () => {
                     vm = new Constructor({}).$mount();
                     const callback = sinon.fake();
 
-                    vm.$on('eventName', callback);
+                    vm.$on(eventName, callback);
 
-                    let event = new Event('eventName');
+                    // Trigger event
+                    let event = new Event(eventName);
+                    Object.defineProperty(
+                        event, 'target', {
+                            value: {value: 'hi'},
+                            enumerable: true
+                        });
                     let inputElement = vm.$el.querySelector('input');
                     inputElement.dispatchEvent(event);
-                    expect(callback).to.have.been.calledWith(event);
+                    expect(callback).to.have.been.calledWith('hi');
                 });
         });
     })
