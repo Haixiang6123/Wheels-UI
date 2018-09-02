@@ -76,14 +76,7 @@
       position: relative;
       z-index: 1;
 }
-/*--button-height: 32px;*/
-/*--font-size: 14px;*/
-/*--button-bg: white;*/
-/*--button-active-bg: #eee;*/
-/*--border-radius: 4px;*/
-/*--color: #42B983;*/
-/*--border-color: #42B983;*/
-/*--border-color-hover: #42B983;*/
+
 .wrapper[data-v-87fab2] {
   display: inline-flex;
   font-size: 12px;
@@ -128,8 +121,6 @@
 .col[data-v-4a16c2] {
   height: 100px;
   width: 50%;
-  background: grey;
-  border: 1px solid red;
 }
 .col.col-1[data-v-4a16c2] {
     width: 4.16667%;

@@ -40,15 +40,6 @@
 </script>
 
 <style scoped lang="scss">
-    /*--button-height: 32px;*/
-    /*--font-size: 14px;*/
-    /*--button-bg: white;*/
-    /*--button-active-bg: #eee;*/
-    /*--border-radius: 4px;*/
-    /*--color: #42B983;*/
-    /*--border-color: #42B983;*/
-    /*--border-color-hover: #42B983;*/
-
     $height: 32px;
     $border-color: #999;
     $border-color-hover: #666;

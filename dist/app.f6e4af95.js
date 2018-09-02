@@ -10769,7 +10769,7 @@ render._withStripped = true
       }
     })();
 },{"./Icon":"src/Icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Row.vue":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -10786,6 +10786,16 @@ exports.default = {
     props: {
         gutter: {
             type: [Number, String]
+        }
+    },
+    computed: {
+        rowStyle: function rowStyle() {
+            var gutter = this.gutter;
+
+            return {
+                marginLeft: -gutter / 2 + 'px',
+                marginRight: -gutter / 2 + 'px'
+            };
         }
     },
     mounted: function mounted() {
@@ -10810,13 +10820,7 @@ exports.default = {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "row",
-      style: {
-        marginLeft: -_vm.gutter / 2 + "px",
-        marginRight: -_vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "row", style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -10855,7 +10859,7 @@ render._withStripped = true
       }
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Col.vue":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -10882,6 +10886,20 @@ exports.default = {
         return {
             gutter: 0
         };
+    },
+
+    computed: {
+        colClass: function colClass() {
+            var span = void 0,
+                offset = this;
+            return [span && 'col-' + span, offset && 'offset-' + offset];
+        },
+        colStyle: function colStyle() {
+            return {
+                paddingLeft: this.gutter / 2 + 'px',
+                paddingRight: this.gutter / 2 + 'px'
+            };
+        }
     }
 };
         var $4a16c2 = exports.default || module.exports;
@@ -10898,17 +10916,7 @@ exports.default = {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: [
-        _vm.span && "col-" + _vm.span,
-        _vm.offset && "offset-" + _vm.offset
-      ],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [_vm._t("default")],
     2
   )
