@@ -10786,9 +10786,21 @@ exports.default = {
     props: {
         gutter: {
             type: [Number, String]
+        },
+        align: {
+            type: [String],
+            default: 'left',
+            validator: function validator(value) {
+                return ['left', 'center', 'right'].includes(value);
+            }
         }
     },
     computed: {
+        rowClass: function rowClass() {
+            var align = this.align;
+
+            return [align && 'align-' + align];
+        },
         rowStyle: function rowStyle() {
             var gutter = this.gutter;
 
@@ -10820,7 +10832,7 @@ exports.default = {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row", style: _vm.rowStyle },
+    { staticClass: "row", class: _vm.rowClass, style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -10890,8 +10902,9 @@ exports.default = {
 
     computed: {
         colClass: function colClass() {
-            var span = void 0,
-                offset = this;
+            var span = this.span,
+                offset = this.offset;
+
             return [span && 'col-' + span, offset && 'offset-' + offset];
         },
         colStyle: function colStyle() {

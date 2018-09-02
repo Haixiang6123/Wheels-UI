@@ -23,7 +23,7 @@
         },
         computed: {
             colClass() {
-                let span, offset = this;
+                let {span, offset} = this;
                 return [
                     span && `col-${span}`,
                     offset && `offset-${offset}`
@@ -41,8 +41,7 @@
 
 <style scoped lang="scss">
     .col {
-        height: 100px;
-        width: 50%;
+        /*width: 50%;*/
 
         $class: col-;
 
