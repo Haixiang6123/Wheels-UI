@@ -37,13 +37,28 @@
 <body>
 
 <div id="app">
-    <w-row>
+    <w-row :gutter="20">
         <w-col span="2">2</w-col>
         <w-col span="22">22</w-col>
     </w-row>
+    <w-row gutter="20">
+        <w-col>1</w-col>
+        <w-col>1</w-col>
+        <w-col>1</w-col>
+    </w-row>
     <w-row>
-        <w-col span="4">4</w-col>
-        <w-col span="20">20</w-col>
+        <w-col span="2">2</w-col>
+        <w-col span="20" offset="2">20</w-col>
+    </w-row>
+    <w-row>
+        <w-col span="2">2</w-col>
+        <w-col span="4" offset="2">20</w-col>
+        <w-col span="14" offset="2">20</w-col>
+    </w-row>
+    <w-row>
+        <w-col span="4">2</w-col>
+        <w-col span="4" offset="6">20</w-col>
+        <w-col span="8" offset="2">20</w-col>
     </w-row>
 
     <div class="box">

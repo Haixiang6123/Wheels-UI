@@ -4,7 +4,7 @@
         <w-icon class="icon" v-if="icon && !loading" :name="icon"/>
         <w-icon v-if="loading" class="loading icon" name="loading"/>
         <span class="content">
-            <slot/>
+            <slot></slot>
         </span>
     </button>
 </template>
