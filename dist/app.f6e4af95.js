@@ -10768,7 +10768,143 @@ render._withStripped = true
       
       }
     })();
-},{"./Icon":"src/Icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"./Icon":"src/Icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Row.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    name: "w-row"
+};
+        var $af93c4 = exports.default || module.exports;
+      
+      if (typeof $af93c4 === 'function') {
+        $af93c4 = $af93c4.options;
+      }
+    
+        /* template */
+        Object.assign($af93c4, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-af93c4",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$af93c4', $af93c4);
+          } else {
+            api.reload('$af93c4', $af93c4);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Col.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    name: "w-col",
+    props: {
+        span: {
+            type: [Number, String]
+        }
+    }
+};
+        var $4a16c2 = exports.default || module.exports;
+      
+      if (typeof $4a16c2 === 'function') {
+        $4a16c2 = $4a16c2.options;
+      }
+    
+        /* template */
+        Object.assign($4a16c2, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "col", class: ["col-" + _vm.span] },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-4a16c2",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$4a16c2', $4a16c2);
+          } else {
+            api.reload('$4a16c2', $4a16c2);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 'use strict';
 
 var _vue = require('vue');
@@ -10791,12 +10927,22 @@ var _Input = require('./Input');
 
 var _Input2 = _interopRequireDefault(_Input);
 
+var _Row = require('./Row');
+
+var _Row2 = _interopRequireDefault(_Row);
+
+var _Col = require('./Col');
+
+var _Col2 = _interopRequireDefault(_Col);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.component('w-icon', _Icon2.default);
 _vue2.default.component('w-button', _Button2.default);
 _vue2.default.component('w-button-group', _ButtonGroup2.default);
 _vue2.default.component('w-input', _Input2.default);
+_vue2.default.component('w-row', _Row2.default);
+_vue2.default.component('w-col', _Col2.default);
 
 new _vue2.default({
     el: '#app',
@@ -10812,7 +10958,7 @@ new _vue2.default({
         }
     }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./Button":"src/Button.vue","./ButtonGroup":"src/ButtonGroup.vue","./Icon":"src/Icon.vue","./Input":"src/Input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./Button":"src/Button.vue","./ButtonGroup":"src/ButtonGroup.vue","./Icon":"src/Icon.vue","./Input":"src/Input.vue","./Row":"src/Row.vue","./Col":"src/Col.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -10841,7 +10987,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51804' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49771' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
