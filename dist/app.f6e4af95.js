@@ -10676,6 +10676,10 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
         var $87fab2 = exports.default || module.exports;
       
       if (typeof $87fab2 === 'function') {
@@ -10694,7 +10698,21 @@ exports.default = {
     [
       _c("input", {
         attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            _vm.$emit("change", $event)
+          },
+          input: function($event) {
+            _vm.$emit("input", $event)
+          },
+          focus: function($event) {
+            _vm.$emit("focus", $event)
+          },
+          blur: function($event) {
+            _vm.$emit("blur", $event)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -10786,6 +10804,11 @@ new _vue2.default({
         loading1: false,
         loading2: true,
         loading3: false
+    },
+    methods: {
+        inputChange: function inputChange(e) {
+            console.log(e.target.value);
+        }
     }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./Button":"src/Button.vue","./ButtonGroup":"src/ButtonGroup.vue","./Icon":"src/Icon.vue","./Input":"src/Input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
