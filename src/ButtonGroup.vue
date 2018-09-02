@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: "button-group",
+        name: "w-button-group",
         mounted() {
             for (let node of this.$el.children) {
                 if (node.nodeName.toLowerCase() !== 'button') {
@@ -17,7 +17,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     .w-button-group {
         display: inline-flex;
         vertical-align: middle;

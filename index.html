@@ -28,33 +28,50 @@
         body {
             font-size: var(--font-size);
         }
+
+        .box {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div id="app">
-    <w-button :loading="loading1" @click="loading1 = !loading1">
-        Button
-    </w-button>
-    <w-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
-        Button
-    </w-button>
-    <w-button :loading="loading3" @click="loading3 = !loading3" :loading="true" icon-position="right">
-        Button
-    </w-button>
+    <div class="box">
+        <w-input value="Someone"></w-input>
+    </div>
+    <div class="box">
+        <w-input value="Someone" error="Name is invalid!"></w-input>
+    </div>
+    <div class="box">
+        <w-input value="Someone" disabled></w-input>
+        <w-input value="Someone" readonly></w-input>
+    </div>
 
-    <w-button-group>
-        <w-button icon="up">
-            Up
+    <div class="box">
+        <w-button :loading="loading1" @click="loading1 = !loading1">
+            Button
         </w-button>
-        <w-button>
-            More
+        <w-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
+            Button
         </w-button>
-        <w-button icon="down">
-            Down
+        <w-button :loading="loading3" @click="loading3 = !loading3" :loading="true" icon-position="right">
+            Button
         </w-button>
-    </w-button-group>
-    <w-icon name="dwnload"></w-icon>
+
+        <w-button-group>
+            <w-button icon="up">
+                Up
+            </w-button>
+            <w-button>
+                More
+            </w-button>
+            <w-button icon="down">
+                Down
+            </w-button>
+        </w-button-group>
+        <w-icon name="dwnload"></w-icon>
+    </div>
 </div>
 
 <script src="src/app.js"></script>

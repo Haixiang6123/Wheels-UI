@@ -13,6 +13,7 @@
     import Icon from './Icon';
 
     export default {
+        name: "w-button",
         props: {
             loading: {
                 type: Boolean,
@@ -33,7 +34,7 @@
     };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     @keyframes spin {
         0% {
             transform: rotate(0);

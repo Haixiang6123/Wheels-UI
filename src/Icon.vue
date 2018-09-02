@@ -7,12 +7,12 @@
 <script>
     import './svg';
     export default {
-        name: "icon",
+        name: "w-icon",
         props: ['name']
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     .w-icon {
         height: 1em;
         width: 1em;
