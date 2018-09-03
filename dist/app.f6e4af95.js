@@ -10876,6 +10876,9 @@ render._withStripped = true
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 //
 //
 //
@@ -10883,6 +10886,17 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+
+var validator = function validator(value) {
+    var keys = Object.keys(value);
+    var valid = true;
+    keys.forEach(function (key) {
+        if (!['span', 'offset'].includes(key)) {
+            valid = false;
+        }
+    });
+    return valid;
+};
 
 exports.default = {
     name: "w-col",
@@ -10892,7 +10906,11 @@ exports.default = {
         },
         offset: {
             type: [Number, String]
-        }
+        },
+        phone: { type: Object, validator: validator },
+        ipad: { type: Object, validator: validator },
+        narrowPc: { type: Object, validator: validator },
+        widePc: { type: Object, validator: validator }
     },
     data: function data() {
         return {
@@ -10902,9 +10920,16 @@ exports.default = {
 
     computed: {
         colClass: function colClass() {
-            var span = this.span,
-                offset = this.offset;
+            var _console;
 
+            var span = this.span,
+                offset = this.offset,
+                phone = this.phone,
+                ipad = this.ipad,
+                narrowPc = this.narrowPc,
+                widePc = this.widePc;
+
+            (_console = console).log.apply(_console, _toConsumableArray(phone && ['col-phone-' + phone.span]));
             return [span && 'col-' + span, offset && 'offset-' + offset];
         },
         colStyle: function colStyle() {
@@ -11050,7 +11075,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49771' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50446' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
