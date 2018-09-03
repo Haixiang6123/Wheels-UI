@@ -10926,14 +10926,34 @@ exports.default = {
                 narrowPc = this.narrowPc,
                 pc = this.pc,
                 widePc = this.widePc;
+            var createClasses = this.createClasses;
 
-            return [span && 'col-' + span, offset && 'offset-' + offset].concat(_toConsumableArray(ipad ? ['col-ipad-' + ipad.span] : []), _toConsumableArray(narrowPc ? ['col-narrow-pc-' + narrowPc.span] : []), _toConsumableArray(pc ? ['col-pc-' + pc.span] : []), _toConsumableArray(widePc ? ['col-wide-pc-' + widePc.span] : []));
+            return [].concat(_toConsumableArray(createClasses({ span: span, offset: offset })), _toConsumableArray(createClasses(ipad, 'ipad-')), _toConsumableArray(createClasses(narrowPc, 'narrow-pc-')), _toConsumableArray(createClasses(pc, 'pc-')), _toConsumableArray(createClasses(widePc, 'wide-pc-')));
         },
         colStyle: function colStyle() {
             return {
                 paddingLeft: this.gutter / 2 + 'px',
                 paddingRight: this.gutter / 2 + 'px'
             };
+        }
+    },
+    methods: {
+        createClasses: function createClasses(obj) {
+            var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+            if (!obj) {
+                return [];
+            }
+
+            var classes = [];
+            if (obj.span) {
+                classes.push('col-' + str + obj.span);
+            }
+            if (obj.offset) {
+                classes.push('offset-' + str + obj.offset);
+            }
+
+            return classes;
         }
     }
 };
