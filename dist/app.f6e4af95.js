@@ -10907,9 +10907,9 @@ exports.default = {
         offset: {
             type: [Number, String]
         },
-        phone: { type: Object, validator: validator },
         ipad: { type: Object, validator: validator },
         narrowPc: { type: Object, validator: validator },
+        pc: { type: Object, validator: validator },
         widePc: { type: Object, validator: validator }
     },
     data: function data() {
@@ -10920,17 +10920,14 @@ exports.default = {
 
     computed: {
         colClass: function colClass() {
-            var _console;
-
             var span = this.span,
                 offset = this.offset,
-                phone = this.phone,
                 ipad = this.ipad,
                 narrowPc = this.narrowPc,
+                pc = this.pc,
                 widePc = this.widePc;
 
-            (_console = console).log.apply(_console, _toConsumableArray(phone && ['col-phone-' + phone.span]));
-            return [span && 'col-' + span, offset && 'offset-' + offset];
+            return [span && 'col-' + span, offset && 'offset-' + offset].concat(_toConsumableArray(ipad ? ['col-ipad-' + ipad.span] : []), _toConsumableArray(narrowPc ? ['col-narrow-pc-' + narrowPc.span] : []), _toConsumableArray(pc ? ['col-pc-' + pc.span] : []), _toConsumableArray(widePc ? ['col-wide-pc-' + widePc.span] : []));
         },
         colStyle: function colStyle() {
             return {
