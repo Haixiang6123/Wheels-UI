@@ -33,61 +33,39 @@
             margin: 20px;
         }
     </style>
+    <style>
+        .demo {
+            height: 100px;
+            background: #ddd;
+            border: 1px solid #333;
+        }
+    </style>
 <link rel="stylesheet" href="/app.f6e4af95.css"></head>
 <body>
 
 <div id="app">
-    <w-row :gutter="20">
-        <w-col :phone="{span: 12}" :ipad="{span: 8}" :narrow-pc="{span: 2}" :wide-pc="{span: 1}" :span="2">2</w-col>
-        <w-col :phone="{span: 12}" :ipad="{span: 16}" :narrow-pc="{span: 22}" :wide-pc="{span: 23}" :span="22">22</w-col>
+    <w-row>
+        <w-col span="24" :narrow-pc="{span: 8}">
+            <div class="demo"></div>
+        </w-col>
+        <w-col span="24" :narrow-pc="{span: 8}">
+            <div class="demo"></div>
+        </w-col>
+        <w-col span="24" :narrow-pc="{span: 8}">
+            <div class="demo"></div>
+        </w-col>
+        <w-col span="24" :narrow-pc="{span: 8}">
+            <div class="demo"></div>
+        </w-col>
+        <w-col span="24" :narrow-pc="{span: 8}">
+            <div class="demo"></div>
+        </w-col>
+        <w-col span="24" :narrow-pc="{span: 8}">
+            <div class="demo"></div>
+        </w-col>
     </w-row>
-
-    <w-row :gutter="20">
-        <w-col :span="2">2</w-col>
-        <w-col :span="22">22</w-col>
-    </w-row>
-
-    <div class="box">
-        <w-input value="Someone"></w-input>
-        <w-input v-model="message"></w-input>
-        <p>{{message}}</p>
-        <button @click="message+=1">111</button>
-    </div>
-    <div class="box">
-        <w-input value="Someone" error="Name is invalid!"></w-input>
-    </div>
-    <div class="box">
-        <w-input value="Someone" disabled=""></w-input>
-        <w-input value="Someone" readonly=""></w-input>
-    </div>
-
-    <div class="box">
-        <w-button :loading="loading1" @click="loading1 = !loading1">
-            Button
-        </w-button>
-        <w-button :loading="loading2" @click="loading2 = !loading2" icon="remove" icon-position="right">
-            Button
-        </w-button>
-        <w-button :loading="loading3" @click="loading3 = !loading3" icon-position="right">
-            Button
-        </w-button>
-
-        <w-button-group>
-            <w-button icon="up">
-                Up
-            </w-button>
-            <w-button>
-                More
-            </w-button>
-            <w-button icon="down">
-                Down
-            </w-button>
-        </w-button-group>
-        <w-icon name="dwnload"></w-icon>
-    </div>
 </div>
 
 <script src="/app.f6e4af95.js"></script>
-<!--<script src="//at.alicdn.com/t/font_812986_j8n9iohqjd.js"></script>-->
 </body>
 </html>
