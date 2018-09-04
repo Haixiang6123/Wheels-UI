@@ -1,15 +1,17 @@
 <template>
-    <div class="heaer">
-
+    <div class="header">
+        <slot></slot>
     </div>
 </template>
 
 <script>
     export default {
-        name: "header"
+        name: "w-header"
     }
 </script>
 
 <style scoped>
+    .header {
 
+    }
 </style>
