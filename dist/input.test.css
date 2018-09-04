@@ -1,0 +1,43 @@
+
+.w-icon[data-v-6d1744] {
+  height: 1em;
+  width: 1em;
+  fill: var(--color);
+}
+
+.wrapper[data-v-87fab2] {
+  display: inline-flex;
+  font-size: 12px;
+  align-items: center;
+}
+.wrapper[data-v-87fab2] > :not(:last-child) {
+    margin-right: .5em;
+}
+.wrapper > input[data-v-87fab2] {
+    height: 32px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: inherit;
+}
+.wrapper > input[data-v-87fab2]:hover {
+      border-color: #666;
+}
+.wrapper > input[data-v-87fab2]:focus {
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+      outline: none;
+}
+.wrapper > input[disabled][data-v-87fab2], .wrapper > input[readonly][data-v-87fab2] {
+      border-color: #ccc;
+      color: #bbb;
+      cursor: not-allowed;
+}
+.wrapper.error > input[data-v-87fab2] {
+    border-color: #F1453D;
+}
+.wrapper .icon-error[data-v-87fab2] {
+    fill: #F1453D;
+}
+.wrapper .error-message[data-v-87fab2] {
+    color: #F1453D;
+}
