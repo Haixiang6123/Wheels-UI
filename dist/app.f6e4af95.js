@@ -11376,7 +11376,95 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Toast.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    name: "w-toast"
+};
+        var $ab2cfe = exports.default || module.exports;
+      
+      if (typeof $ab2cfe === 'function') {
+        $ab2cfe = $ab2cfe.options;
+      }
+    
+        /* template */
+        Object.assign($ab2cfe, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-ab2cfe",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$ab2cfe', $ab2cfe);
+          } else {
+            api.reload('$ab2cfe', $ab2cfe);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/plugin.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _Toast = require('./Toast');
+
+var _Toast2 = _interopRequireDefault(_Toast);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    install: function install(Vue, options) {
+        Vue.prototype.$toast = function (msg) {
+            var Constructor = Vue.extend(_Toast2.default);
+            var toast = new Constructor();
+
+            toast.$slots.default = [msg];
+            toast.$mount();
+            document.body.appendChild(toast.$el);
+        };
+    }
+};
+},{"./Toast":"src/Toast.vue"}],"src/app.js":[function(require,module,exports) {
 'use strict';
 
 var _vue = require('vue');
@@ -11427,6 +11515,14 @@ var _Footer = require('./Footer');
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _Toast = require('./Toast');
+
+var _Toast2 = _interopRequireDefault(_Toast);
+
+var _plugin = require('./plugin');
+
+var _plugin2 = _interopRequireDefault(_plugin);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.component('w-icon', _Icon2.default);
@@ -11440,6 +11536,9 @@ _vue2.default.component('w-header', _Header2.default);
 _vue2.default.component('w-sider', _Sider2.default);
 _vue2.default.component('w-content', _Content2.default);
 _vue2.default.component('w-footer', _Footer2.default);
+_vue2.default.component('w-toast', _Toast2.default);
+
+_vue2.default.use(_plugin2.default);
 
 new _vue2.default({
     el: '#app',
@@ -11450,12 +11549,12 @@ new _vue2.default({
         message: 'hi'
     },
     methods: {
-        inputChange: function inputChange(e) {
-            console.log(e.target.value);
+        showToast: function showToast() {
+            this.$toast('oh my god');
         }
     }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./Button":"src/Button.vue","./ButtonGroup":"src/ButtonGroup.vue","./Icon":"src/Icon.vue","./Input":"src/Input.vue","./Row":"src/Row.vue","./Col":"src/Col.vue","./Layout":"src/Layout.vue","./Header":"src/Header.vue","./Sider":"src/Sider.vue","./Content":"src/Content.vue","./Footer":"src/Footer.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./Button":"src/Button.vue","./ButtonGroup":"src/ButtonGroup.vue","./Icon":"src/Icon.vue","./Input":"src/Input.vue","./Row":"src/Row.vue","./Col":"src/Col.vue","./Layout":"src/Layout.vue","./Header":"src/Header.vue","./Sider":"src/Sider.vue","./Content":"src/Content.vue","./Footer":"src/Footer.vue","./Toast":"src/Toast.vue","./plugin":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -11484,7 +11583,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55371' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51191' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

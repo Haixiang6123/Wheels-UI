@@ -10,6 +10,9 @@ import Header from './Header';
 import Sider from './Sider';
 import Content from './Content';
 import Footer from './Footer';
+import Toast from './Toast';
+
+import plugin from './plugin';
 
 Vue.component('w-icon', Icon);
 Vue.component('w-button', Button);
@@ -22,6 +25,9 @@ Vue.component('w-header', Header);
 Vue.component('w-sider', Sider);
 Vue.component('w-content', Content);
 Vue.component('w-footer', Footer);
+Vue.component('w-toast', Toast);
+
+Vue.use(plugin);
 
 new Vue({
     el: '#app',
@@ -32,8 +38,8 @@ new Vue({
         message: 'hi'
     },
     methods: {
-        inputChange(e) {
-            console.log(e.target.value);
+        showToast() {
+            this.$toast('oh my god');
         }
     }
 });
