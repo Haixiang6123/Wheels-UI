@@ -861,7 +861,6 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 }
 .layout.hasSider[data-v-c3a6ea] {
     flex-direction: row;
@@ -869,6 +868,21 @@
 
 .header[data-v-a769bf] {
 }
+.sider[data-v-b23a12] {
+  position: relative;
+}
+.sider > button[data-v-b23a12] {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.slide-enter-active[data-v-b23a12], .slide-leave-active[data-v-b23a12] {
+  transition: width .5s;
+}
+.slide-enter[data-v-b23a12], .slide-leave-to[data-v-b23a12] {
+  width: 0;
+}
+
 .content[data-v-d777a9] {
     flex-grow: 1;
 }
