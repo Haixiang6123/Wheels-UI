@@ -11388,9 +11388,56 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
-    name: "w-toast"
+    name: "w-toast",
+    props: {
+        autoClose: {
+            type: Boolean,
+            default: false
+        },
+        autoDelay: {
+            type: Number,
+            default: 3
+        },
+        closeButton: {
+            type: Object,
+            default: function _default() {
+                return {
+                    text: 'Close', callback: function callback(toast) {
+                        toast.close();
+                    }
+                };
+            }
+        }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        if (this.autoClose) {
+            setTimeout(function () {
+                _this.close();
+            }, this.autoDelay * 1000);
+        }
+    },
+
+    methods: {
+        close: function close() {
+            this.$el.remove();
+            this.$destroy();
+        },
+        onClickClose: function onClickClose() {
+            this.close();
+            this.closeButton.callback();
+        }
+    }
 };
         var $ab2cfe = exports.default || module.exports;
       
@@ -11404,7 +11451,24 @@ exports.default = {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    { staticClass: "toast" },
+    [
+      _vm._t("default"),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v("\n        " + _vm._s(_vm.closeButton.text) + "\n    ")]
+          )
+        : _vm._e()
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11456,7 +11520,16 @@ exports.default = {
     install: function install(Vue, options) {
         Vue.prototype.$toast = function (msg) {
             var Constructor = Vue.extend(_Toast2.default);
-            var toast = new Constructor();
+            var toast = new Constructor({
+                propsData: {
+                    closeButton: {
+                        text: 'OK',
+                        callback: function callback() {
+                            console.log('ok');
+                        }
+                    }
+                }
+            });
 
             toast.$slots.default = [msg];
             toast.$mount();
@@ -11583,7 +11656,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51191' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54259' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

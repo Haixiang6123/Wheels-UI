@@ -3,7 +3,16 @@ export default {
     install(Vue, options) {
         Vue.prototype.$toast = function (msg) {
             let Constructor = Vue.extend(Toast);
-            let toast = new Constructor();
+            let toast = new Constructor({
+                propsData: {
+                    closeButton: {
+                        text: 'OK',
+                        callback() {
+                            console.log('ok');
+                        }
+                    }
+                }
+            });
 
             toast.$slots.default = [msg];
             toast.$mount();
