@@ -11409,12 +11409,11 @@ exports.default = {
     name: "w-toast",
     props: {
         autoClose: {
-            type: Boolean,
-            default: false
-        },
-        autoDelay: {
-            type: Number,
-            default: 3
+            type: [Boolean, Number],
+            default: 3,
+            validator: function validator(value) {
+                return value === false || typeof value === 'number';
+            }
         },
         closeButton: {
             type: Object,
@@ -11454,7 +11453,7 @@ exports.default = {
             if (this.autoClose) {
                 setTimeout(function () {
                     _this.close();
-                }, this.autoDelay * 1000);
+                }, this.autoClose * 1000);
             }
         },
         setHeightForLine: function setHeightForLine() {
@@ -11702,8 +11701,7 @@ new _vue2.default({
                     callback: function callback() {}
                 },
                 enableHtml: false,
-                autoClose: false,
-                autoDelay: 3
+                autoClose: 3
             });
         }
     }
@@ -11737,7 +11735,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63959' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58295' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

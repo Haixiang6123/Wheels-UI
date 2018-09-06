@@ -22,12 +22,11 @@
         name: "w-toast",
         props: {
             autoClose: {
-                type: Boolean,
-                default: false
-            },
-            autoDelay: {
-                type: Number,
-                default: 3
+                type: [Boolean, Number],
+                default: 3,
+                validator(value) {
+                    return value === false || typeof value === 'number';
+                }
             },
             closeButton: {
                 type: Object,
@@ -64,7 +63,7 @@
                 if (this.autoClose) {
                     setTimeout(() => {
                         this.close();
-                    }, this.autoDelay * 1000);
+                    }, this.autoClose * 1000);
                 }
             },
             setHeightForLine() {
