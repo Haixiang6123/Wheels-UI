@@ -72,6 +72,7 @@
             },
             close() {
                 this.$el.remove();
+                this.$emit('close');
                 this.$destroy();
             },
             onClickClose() {
@@ -90,11 +91,21 @@
     $toast-bg: rgba(0, 0, 0, 0.75);
     $box-shadow: rgba(0, 0, 0, 0.5);
 
+    @keyframes fade-in {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    @keyframes slide-up {
+        0% { opacity: 0; transform: translate(-50%, 100%) }
+        100%{ opacity: 1; transform: translate(-50%, 0%); }
+    }
+
     .toast {
         display: flex;align-items: center;min-height: $toast-min-height;
         position: fixed;left: 50%;
         font-size: $font-size;line-height: 1.8;color: white;background: $toast-bg;
         border-radius: 4px;box-shadow: 0 0 3px 0 $box-shadow;padding: 0 16px;
+        animation: slide-up 1s;
 
         .message {
             padding: 8px 0;

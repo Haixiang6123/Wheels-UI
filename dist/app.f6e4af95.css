@@ -886,6 +886,24 @@
 .content[data-v-d777a9] {
     flex-grow: 1;
 }
+@keyframes fade-in-data-v-ab2cfe {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@keyframes slide-up-data-v-ab2cfe {
+0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+}
+100% {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+}
+}
 .toast[data-v-ab2cfe] {
   display: flex;
   align-items: center;
@@ -899,6 +917,7 @@
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   padding: 0 16px;
+  animation: slide-up-data-v-ab2cfe 1s;
 }
 .toast .message[data-v-ab2cfe] {
     padding: 8px 0;
