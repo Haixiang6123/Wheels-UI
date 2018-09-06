@@ -39,7 +39,12 @@ new Vue({
     },
     methods: {
         showToast() {
-            this.$toast('oh my god');
+            this.$toast('Short msg', {
+                closeButton: {
+                    text: 'OK',
+                    callback() {}
+                },
+            });
         }
     }
 });

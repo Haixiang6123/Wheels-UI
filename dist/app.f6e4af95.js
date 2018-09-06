@@ -11377,11 +11377,15 @@ render._withStripped = true
       }
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Toast.vue":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
+//
+//
+//
 //
 //
 //
@@ -11411,31 +11415,47 @@ exports.default = {
             type: Object,
             default: function _default() {
                 return {
-                    text: 'Close', callback: function callback(toast) {
-                        toast.close();
-                    }
+                    text: 'Close',
+                    callback: undefined
                 };
             }
+        },
+        enableHtml: {
+            type: Boolean,
+            default: false
         }
     },
     mounted: function mounted() {
-        var _this = this;
-
-        if (this.autoClose) {
-            setTimeout(function () {
-                _this.close();
-            }, this.autoDelay * 1000);
-        }
+        this.execAutoClose();
+        this.setHeightForLine();
     },
 
     methods: {
+        execAutoClose: function execAutoClose() {
+            var _this = this;
+
+            if (this.autoClose) {
+                setTimeout(function () {
+                    _this.close();
+                }, this.autoDelay * 1000);
+            }
+        },
+        setHeightForLine: function setHeightForLine() {
+            var _this2 = this;
+
+            this.$nextTick(function () {
+                _this2.$refs.line.style.height = _this2.$refs.wrapper.getBoundingClientRect().height + 'px';
+            });
+        },
         close: function close() {
             this.$el.remove();
             this.$destroy();
         },
         onClickClose: function onClickClose() {
             this.close();
-            this.closeButton.callback();
+            if (this.closeButton && typeof this.closeButton.callback === 'function') {
+                this.closeButton.callback(this);
+            }
         }
     }
 };
@@ -11451,24 +11471,28 @@ exports.default = {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "toast" },
-    [
-      _vm._t("default"),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }),
-      _vm._v(" "),
-      _vm.closeButton
-        ? _c(
-            "span",
-            { staticClass: "close", on: { click: _vm.onClickClose } },
-            [_vm._v("\n        " + _vm._s(_vm.closeButton.text) + "\n    ")]
-          )
-        : _vm._e()
-    ],
-    2
-  )
+  return _c("div", { ref: "wrapper", staticClass: "toast" }, [
+    _c(
+      "div",
+      { staticClass: "message" },
+      [
+        !_vm.enableHtml
+          ? _vm._t("default")
+          : _c("div", {
+              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+            })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { ref: "line", staticClass: "line" }),
+    _vm._v(" "),
+    _vm.closeButton
+      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
+          _vm._v("\n        " + _vm._s(_vm.closeButton.text) + "\n    ")
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11518,17 +11542,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
     install: function install(Vue, options) {
-        Vue.prototype.$toast = function (msg) {
+        Vue.prototype.$toast = function (msg, toastOptions) {
             var Constructor = Vue.extend(_Toast2.default);
             var toast = new Constructor({
-                propsData: {
-                    closeButton: {
-                        text: 'OK',
-                        callback: function callback() {
-                            console.log('ok');
-                        }
-                    }
-                }
+                propsData: toastOptions
             });
 
             toast.$slots.default = [msg];
@@ -11623,7 +11640,12 @@ new _vue2.default({
     },
     methods: {
         showToast: function showToast() {
-            this.$toast('oh my god');
+            this.$toast('Short msg', {
+                closeButton: {
+                    text: 'OK',
+                    callback: function callback() {}
+                }
+            });
         }
     }
 });
@@ -11656,7 +11678,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54259' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53506' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
