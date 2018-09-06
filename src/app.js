@@ -44,6 +44,7 @@ new Vue({
                     text: 'OK',
                     callback() {}
                 },
+                position: 'top'
             });
         }
     }
