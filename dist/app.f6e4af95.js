@@ -11561,20 +11561,35 @@ var _Toast2 = _interopRequireDefault(_Toast);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var currentToast = void 0;
+
 exports.default = {
     install: function install(Vue, options) {
         Vue.prototype.$toast = function (msg, toastOptions) {
-            var Constructor = Vue.extend(_Toast2.default);
-            var toast = new Constructor({
-                propsData: toastOptions
-            });
-
-            toast.$slots.default = [msg];
-            toast.$mount();
-            document.body.appendChild(toast.$el);
+            if (currentToast) {
+                currentToast.close();
+            }
+            currentToast = createToast({ Vue: Vue, msg: msg, propsData: toastOptions });
         };
     }
 };
+
+/* Helpers */
+
+function createToast(_ref) {
+    var Vue = _ref.Vue,
+        msg = _ref.msg,
+        propsData = _ref.propsData;
+
+    var Constructor = Vue.extend(_Toast2.default);
+    var toast = new Constructor({ propsData: propsData });
+
+    toast.$slots.default = [msg];
+    toast.$mount();
+    document.body.appendChild(toast.$el);
+
+    return toast;
+}
 },{"./Toast":"src/Toast.vue"}],"src/app.js":[function(require,module,exports) {
 'use strict';
 
@@ -11662,11 +11677,14 @@ new _vue2.default({
     methods: {
         showToast: function showToast() {
             this.$toast('Short msg', {
+                position: 'top',
                 closeButton: {
                     text: 'OK',
                     callback: function callback() {}
                 },
-                position: 'top'
+                enableHtml: false,
+                autoClose: false,
+                autoDelay: 3
             });
         }
     }
@@ -11700,7 +11718,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53506' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63959' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

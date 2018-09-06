@@ -40,11 +40,14 @@ new Vue({
     methods: {
         showToast() {
             this.$toast('Short msg', {
+                position: 'top',
                 closeButton: {
                     text: 'OK',
                     callback() {}
                 },
-                position: 'top'
+                enableHtml: false,
+                autoClose: false,
+                autoDelay: 3
             });
         }
     }
