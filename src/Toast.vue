@@ -7,6 +7,7 @@
             </div>
 
             <div class="line" ref="line"></div>
+
             <span
                 v-if="closeButton"
                 class="close"

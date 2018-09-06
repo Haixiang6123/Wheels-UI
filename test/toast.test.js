@@ -28,7 +28,7 @@ describe('Toast', () => {
             });
         });
 
-        it('receive auto', () => {
+        it('receive auto', (done) => {
             const callback = sinon.fake();
 
             const Constructor = Vue.extend(Toast);
@@ -44,8 +44,11 @@ describe('Toast', () => {
             let closeButton = vm.$el.querySelector('.close');
             expect(closeButton.textContent.trim()).to.eq('Close');
 
-            closeButton.click();
-            expect(callback).to.have.been.called;
+            setTimeout(() => {
+                closeButton.click();
+                expect(callback).to.have.been.called;
+                done();
+            }, 200);
         });
 
         it('receive enableHtml', () => {

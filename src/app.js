@@ -11,6 +11,11 @@ import Sider from './Sider';
 import Content from './Content';
 import Footer from './Footer';
 import Toast from './Toast';
+import Tabs from './Tabs';
+import TabsHead from './TabsHead';
+import TabsItem from './TabsItem';
+import TabsBody from './TabsBody';
+import TabsPane from './TabsPane';
 
 import plugin from './plugin';
 
@@ -26,37 +31,19 @@ Vue.component('w-sider', Sider);
 Vue.component('w-content', Content);
 Vue.component('w-footer', Footer);
 Vue.component('w-toast', Toast);
+Vue.component('w-tabs', Tabs);
+Vue.component('w-tabs-head', TabsHead);
+Vue.component('w-tabs-item', TabsItem);
+Vue.component('w-tabs-body', TabsBody);
+Vue.component('w-tabs-pane', TabsPane);
 
 Vue.use(plugin);
 
 new Vue({
     el: '#app',
     data: {
-        loading1: false,
-        loading2: true,
-        loading3: false,
-        message: 'hi'
+        selectedTabs: 'sports'
     },
     methods: {
-        showToast1() {
-            this.showToast('top');
-        },
-        showToast2() {
-            this.showToast('middle');
-        },
-        showToast3() {
-            this.showToast('bottom')
-        },
-        showToast(pos) {
-            this.$toast('Short msg', {
-                position: pos,
-                closeButton: {
-                    text: 'OK',
-                    callback() {}
-                },
-                enableHtml: false,
-                autoClose: 3,
-            });
-        }
     }
 });
