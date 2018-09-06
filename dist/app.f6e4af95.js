@@ -11402,6 +11402,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 exports.default = {
     name: "w-toast",
@@ -11459,7 +11461,7 @@ exports.default = {
             var _this2 = this;
 
             this.$nextTick(function () {
-                _this2.$refs.line.style.height = _this2.$refs.wrapper.getBoundingClientRect().height + 'px';
+                _this2.$refs.line.style.height = _this2.$refs.toast.getBoundingClientRect().height + 'px';
             });
         },
         close: function close() {
@@ -11487,10 +11489,8 @@ exports.default = {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+    _c("div", { ref: "toast", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -11513,8 +11513,8 @@ exports.default = {
             [_vm._v("\n        " + _vm._s(_vm.closeButton.text) + "\n    ")]
           )
         : _vm._e()
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11685,9 +11685,18 @@ new _vue2.default({
         message: 'hi'
     },
     methods: {
-        showToast: function showToast() {
+        showToast1: function showToast1() {
+            this.showToast('top');
+        },
+        showToast2: function showToast2() {
+            this.showToast('middle');
+        },
+        showToast3: function showToast3() {
+            this.showToast('bottom');
+        },
+        showToast: function showToast(pos) {
             this.$toast('Short msg', {
-                position: 'top',
+                position: pos,
                 closeButton: {
                     text: 'OK',
                     callback: function callback() {}

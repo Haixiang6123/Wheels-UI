@@ -38,9 +38,18 @@ new Vue({
         message: 'hi'
     },
     methods: {
-        showToast() {
+        showToast1() {
+            this.showToast('top');
+        },
+        showToast2() {
+            this.showToast('middle');
+        },
+        showToast3() {
+            this.showToast('bottom')
+        },
+        showToast(pos) {
             this.$toast('Short msg', {
-                position: 'top',
+                position: pos,
                 closeButton: {
                     text: 'OK',
                     callback() {}
