@@ -12,9 +12,11 @@
     export default {
         name: "w-tabs-head",
         inject: ['eventBus'],
-        created() {
+        mounted() {
             this.eventBus.$on('update:selected', (itemName, item) => {
-
+                let {width, height, top, left} = item.$el.getBoundingClientRect();
+                this.$refs.line.style.width = `${width}px`;
+                this.$refs.line.style.left = `${left}px`;
             });
         }
     }
@@ -32,9 +34,9 @@
 
         > .line {
             position: absolute;
-            width: 100px;
             bottom: 0;
-            border-bottom: 1px solid $primary-color;
+            border-bottom: 2px solid $primary-color;
+            transition: all 300ms;
         }
 
         > .actions-wrapper  {
