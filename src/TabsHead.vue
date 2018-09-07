@@ -23,7 +23,6 @@
         display: flex;
         height: $tabs-head-height;
         justify-content: flex-start;
-        align-items: center;
         border: 1px solid red;
 
         .actions-wrapper  {
