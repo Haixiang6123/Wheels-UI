@@ -25,12 +25,14 @@
 <style scoped lang="scss">
     $tabs-head-height: 40px;
     $primary-color: #42B983;
+    $border-color: #ddd;
 
     .tabs-head {
         display: flex;
         height: $tabs-head-height;
         justify-content: flex-start;
         position: relative;
+        border-bottom: 1px solid $border-color;
 
         > .line {
             position: absolute;
@@ -40,6 +42,9 @@
         }
 
         > .actions-wrapper  {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-left: auto;
         }
     }
