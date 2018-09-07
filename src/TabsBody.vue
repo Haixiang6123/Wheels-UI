@@ -6,7 +6,10 @@
 
 <script>
     export default {
-        name: "w-tabs-body"
+        name: "w-tabs-body",
+        inject: ['eventBus'],
+        created() {
+        }
     }
 </script>
 
