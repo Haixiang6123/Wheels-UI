@@ -33,6 +33,11 @@
             }
         },
         mounted() {
+            if (this.$children.length === 0) {
+                console && console.warn &&
+                console.warn('Children of Tabs should be TabsHead and TabsBody!');
+            }
+
             this.$children.forEach((vm) => {
                 if (vm.$options.name === 'w-tabs-head') {
                     vm.$children.forEach((item) => {
