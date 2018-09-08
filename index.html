@@ -50,31 +50,15 @@
 </head>
 <body>
 
-<div id="app">
-    <w-tabs :selected.sync="selectedTabs">
-        <w-tabs-head>
-            <template slot="actions">
-                <w-button name="settings">Actions</w-button>
-            </template>
-            <w-tabs-item name="woman">
-                <w-icon name="remove"></w-icon>
-                美女
-            </w-tabs-item>
-            <w-tabs-item disabled name="eco">财经</w-tabs-item>
-            <w-tabs-item name="sports">体育</w-tabs-item>
-        </w-tabs-head>
-        <w-tabs-body>
-            <w-tabs-pane name="woman">
-                美女相关咨询
-            </w-tabs-pane>
-            <w-tabs-pane name="eco">
-                财经相关咨询
-            </w-tabs-pane>
-            <w-tabs-pane name="sports">
-                体育相关咨询
-            </w-tabs-pane>
-        </w-tabs-body>
-    </w-tabs>
+<div id="app" style="padding-top: 100px; padding-left: 100px;">
+    <w-popover>
+        <template slot="content">
+            <div>Popover content</div>
+        </template>
+        <template>
+            <w-button>Click Me</w-button>
+        </template>
+    </w-popover>
 </div>
 
 <script src="src/app.js"></script>
