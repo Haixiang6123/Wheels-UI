@@ -38,20 +38,10 @@
         },
         computed: {
             openEvent() {
-                if (this.trigger === 'click') {
-                    return 'click';
-                }
-                else {
-                    return 'mouseenter';
-                }
+                return this.trigger === 'click' ? 'click' : 'mouseenter';
             },
             closeEvent() {
-                if (this.trigger === 'click') {
-                    return 'click';
-                }
-                else {
-                    return 'mouseleave';
-                }
+                return this.trigger === 'click' ? 'click' : 'mouseleave';
             }
         },
         mounted() {
