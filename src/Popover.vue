@@ -23,6 +23,7 @@
             setContentPosition() {
                 document.body.appendChild(this.$refs.contentWrapper);
                 let {top, left} = this.$refs.triggerWrapper.getBoundingClientRect();
+
                 this.$refs.contentWrapper.style.left = left + window.scrollX + 'px';
                 this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
             },
@@ -44,7 +45,6 @@
             },
             close() {
                 this.visible = false;
-                console.log('CLose');
                 document.removeEventListener('click', this.onClickDocument);
             },
             onClick(event) {

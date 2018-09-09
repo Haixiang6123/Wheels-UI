@@ -32,21 +32,28 @@
                 eventBus: this.eventBus
             }
         },
-        mounted() {
-            if (this.$children.length === 0) {
-                console && console.warn &&
-                console.warn('Children of Tabs should be TabsHead and TabsBody!');
-            }
-
-            this.$children.forEach((vm) => {
-                if (vm.$options.name === 'w-tabs-head') {
-                    vm.$children.forEach((item) => {
-                        if (item.$options.name === 'w-tabs-item' && item.name === this.selected) {
-                            this.eventBus.$emit('update:selected', this.selected, item);
-                        }
-                    });
+        methods: {
+            checkChildren() {
+                if (this.$children.length === 0) {
+                    console && console.warn &&
+                    console.warn('Children of Tabs should be TabsHead and TabsBody!');
                 }
-            });
+            },
+            selectTab() {
+                this.$children.forEach((vm) => {
+                    if (vm.$options.name === 'w-tabs-head') {
+                        vm.$children.forEach((item) => {
+                            if (item.$options.name === 'w-tabs-item' && item.name === this.selected) {
+                                this.eventBus.$emit('update:selected', this.selected, item);
+                            }
+                        });
+                    }
+                });
+            }
+        },
+        mounted() {
+            this.checkChildren();
+            this.selectTab();
         }
     }
 </script>
