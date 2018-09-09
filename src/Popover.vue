@@ -1,5 +1,5 @@
 <template>
-    <div ref="popover" class="popover" @click="onClick">
+    <div ref="popover" class="popover">
         <div ref="contentWrapper" v-if="visible" class="content-wrapper"
              :class="{[`position-${position}`]: true}">
             <!--Slot for popover content-->
@@ -22,11 +22,66 @@
                 validator(value) {
                     return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
                 }
+            },
+            trigger: {
+                type: String,
+                default: 'click',
+                validator(value) {
+                    return ['click', 'hover'].indexOf(value) >= 0;
+                }
             }
         },
         data() {
             return {
-                visible: false
+                visible: false,
+            }
+        },
+        computed: {
+            openEvent() {
+                if (this.trigger === 'click') {
+                    return 'click';
+                }
+                else {
+                    return 'mouseenter';
+                }
+            },
+            closeEvent() {
+                if (this.trigger === 'click') {
+                    return 'click';
+                }
+                else {
+                    return 'mouseleave';
+                }
+            }
+        },
+        mounted() {
+            // Click event
+            if (this.trigger === 'click') {
+                this.$refs.popover.addEventListener('click', this.onClick);
+            }
+            // Hover event
+            else {
+                this.$refs.popover.addEventListener(this.openEvent, () => {
+                    this.open();
+                });
+                this.$refs.popover.addEventListener(this.closeEvent, () => {
+                    this.close();
+                })
+            }
+        },
+        destroyed() {
+            // Click event
+            if (this.trigger === 'click') {
+                this.$refs.popover.removeEventListener('click', this.onClick);
+            }
+            // Hover event
+            else {
+                this.$refs.popover.removeEventListener(this.openEvent, () => {
+                    this.open();
+                });
+                this.$refs.popover.removeEventListener(this.closeEvent, () => {
+                    this.close();
+                })
             }
         },
         methods: {
@@ -44,14 +99,14 @@
                     },
                     bottom: {
                         top: top + height + window.scrollY,
-                        left:  left + window.scrollX,
+                        left: left + window.scrollX,
                     },
                     left: {
                         top: top + window.scrollY + (height - height2) / 2,
                         left: left + window.scrollX,
                     },
                     right: {
-                        top:  top + window.scrollY + (height - height2) / 2 ,
+                        top: top + window.scrollY + (height - height2) / 2,
                         left: left + width + window.scrollX,
                     },
                 };
