@@ -7,7 +7,9 @@ sidebarDepth: 2
 
 how to use
 
-<button-demo></button-demo>
+<ClientOnly>
+  <button-demo></button-demo>
+</ClientOnly>
 
 ```html
 <w-button>Default</w-button>

@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/wheel-ui/',
     title: 'Wheel UI',
     description: 'A UI library based on Vue.js',
     host: 'localhost',
