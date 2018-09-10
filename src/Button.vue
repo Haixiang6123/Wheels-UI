@@ -3,7 +3,7 @@
         @click="$emit('click')">
         <w-icon class="icon" v-if="icon && !loading" :name="icon"/>
         <w-icon v-if="loading" class="loading icon" name="loading"/>
-        <span class="content">
+        <span class="content-wrapper">
             <slot></slot>
         </span>
     </button>
@@ -35,6 +35,15 @@
 </script>
 
 <style scoped lang="scss">
+    $button-height: 32px;
+    $font-size: 14px;
+    $button-bg: white;
+    $button-active-bg: #eee;
+    $border-radius: 4px;
+    $color: #42B983;
+    $border-color: #42B983;
+    $border-color-hover: #42B983;
+
     @keyframes spin {
         0% {
             transform: rotate(0);
@@ -46,29 +55,29 @@
     }
 
     .w-button {
-        font-size: var(--font-size);
-        height: var(--button-height);
+        font-size: $font-size;
+        height: $button-height;
         padding: 0 1em;
-        color: var(--color);
-        border-radius: var(--border-radius);
-        border: 1px solid var(--border-color);
-        background: var(--button-bg);
+        color: $color;
+        border-radius: $border-radius;
+        border: 1px solid $border-color;
+        background: $button-bg;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         vertical-align: top;
 
         &:hover {
-            border-color: var(--border-color-hover);
+            border-color: $border-color-hover;
         }
         &:active {
-            background-color: var(--button-active-bg);
+            background-color: $button-active-bg;
         }
         &:focus {
             outline: none;
         }
 
-        > .content {
+        > .content-wrapper {
             order: 2;
         }
         > .icon {
@@ -77,7 +86,7 @@
         }
 
         &.icon-right {
-            > .content {
+            > .content-wrapper {
                 order: 1;
             }
             > .icon {

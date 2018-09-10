@@ -13,9 +13,11 @@
 </script>
 
 <style scoped lang="scss">
+    $color: #42B983;
+
     .w-icon {
         height: 1em;
         width: 1em;
-        fill: var(--color);
+        fill: $color;
     }
 </style>

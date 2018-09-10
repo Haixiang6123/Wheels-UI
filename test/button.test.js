@@ -10,7 +10,7 @@ describe('Button', () => {
         expect(Button).to.be.ok
     });
     it('Set icon for a button.', () => {
-        const Constructor = Vue.extend(Button)
+        const Constructor = Vue.extend(Button);
         const vm = new Constructor({
             propsData: {
                 icon: 'settings'
