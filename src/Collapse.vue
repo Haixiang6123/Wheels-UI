@@ -5,8 +5,28 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+
     export default {
-        name: "w-collapse"
+        name: "w-collapse",
+        props: {
+            singleSelected: {
+                type: Boolean,
+                default: false
+            }
+        },
+        data() {
+            return {
+                eventBus: new Vue()
+            }
+        },
+        provide() {
+            if (this.singleSelected) {
+                return {
+                    eventBus: this.eventBus
+                }
+            }
+        }
     }
 </script>
 
