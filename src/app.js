@@ -48,7 +48,7 @@ Vue.use(plugin);
 new Vue({
     el: '#app',
     data: {
-        selectedTabs: 'sports'
+        selectedTab: ['1', '2']
     },
     methods: {
         yyy() {

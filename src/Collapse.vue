@@ -15,12 +15,12 @@
                 default: false
             },
             selected: {
-                type: String,
+                type: Array,
             }
         },
         data() {
             return {
-                eventBus: new Vue()
+                eventBus: new Vue(),
             }
         },
         provide() {
@@ -30,6 +30,37 @@
         },
         mounted() {
             this.eventBus.$emit('update:selected', this.selected);
+
+            this.eventBus.$on('update:addSelected', (name) => {
+                let selectedCopy = JSON.parse(JSON.stringify(this.selected));
+
+                // Only one item can be selected, so clear all elements and push the selected item's name
+                if (this.singleSelected) {
+                    selectedCopy = [name];
+                }
+                // More items can be selected
+                else {
+                    selectedCopy.push(name);
+                }
+                // Update collapse item
+                this.eventBus.$emit('update:selected', selectedCopy);
+                this.$emit('update:selected', selectedCopy);
+            });
+
+            this.eventBus.$on('update:removeSelected', (name) => {
+                let selectedCopy = JSON.parse(JSON.stringify(this.selected));
+
+                // Remove selected pane
+                let index = selectedCopy.indexOf(name);
+                selectedCopy.splice(index, 1);
+                // Update collapse item
+                this.eventBus.$emit('update:selected', selectedCopy);
+                this.$emit('update:selected', selectedCopy);
+            });
+
+            this.$children.forEach((vm) => {
+                vm.singleSelected = this.singleSelected;
+            });
         }
     }
 </script>
