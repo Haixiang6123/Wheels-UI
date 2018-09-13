@@ -27,6 +27,12 @@ module.exports = {
                     '/layout/grid.md',
                 ]
             },
+            {
+                title: 'Data Display',
+                children: [
+                    '/data-display/tabs.md',
+                ]
+            }
         ]
     }
 }
