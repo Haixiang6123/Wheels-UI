@@ -1,6 +1,4 @@
-# Wheel UI
+# <img width="25" src="./assets/wheel.png"></img> UI
 
-Wheel UI is a great UI library based on Vue.js. 
+<img width="13" src="./assets/wheel.png"></img> (Wheel) UI is a great UI library based on Vue.js. 
 It provides some useful components. Very suitable for mobile and PC.
-
-

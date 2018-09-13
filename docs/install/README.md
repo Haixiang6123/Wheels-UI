@@ -4,4 +4,12 @@ title: Install
 
 # Install
 
-How to install
+```bash
+npm install wheel-ui
+```
+
+or
+
+```bash
+yarn add wheel-ui
+```

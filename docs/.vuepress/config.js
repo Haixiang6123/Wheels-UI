@@ -4,6 +4,9 @@ module.exports = {
     description: 'A UI library based on Vue.js',
     host: 'localhost',
     themeConfig: {
+        nav: [
+            { text: 'Github', link: 'https://github.com/Haixiang6123/wheel-ui' },
+        ],
         sidebar: [
             {
                 title: 'Introduction',
