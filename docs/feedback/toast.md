@@ -19,7 +19,7 @@ Then you can set 3 positions when it shows a message.
 
 ### Preview
 <ClientOnly>
-  <feedback-toast></feedback-toast>
+  <toast-default></toast-default>
 </ClientOnly>
 
 ### Codes
@@ -41,7 +41,7 @@ Also, you can set a callback function when user hits the button.
 
 ### Preview
 <ClientOnly>
-  <feedback-toast-close-button></feedback-toast-close-button>
+  <toast-close-button></toast-close-button>
 </ClientOnly>
 
 ### Codes
@@ -70,7 +70,7 @@ Also, you can use html tags in the content of Toast.
 
 ### Preview
 <ClientOnly>
-  <feedback-toast-html></feedback-toast-html>
+  <toast-html></toast-html>
 </ClientOnly>
 
 ### Codes

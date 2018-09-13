@@ -13,7 +13,7 @@ so based on 12 Grids System, it divided the design area into 24 aliquots.
 
 ### Preview
 <ClientOnly>
-  <layout-grid></layout-grid>
+  <grid-default></grid-default>
 </ClientOnly>
 
 ### Codes
@@ -111,7 +111,7 @@ so based on 12 Grids System, it divided the design area into 24 aliquots.
 
 ### Preview
 <ClientOnly>
-  <layout-grid-gutter></layout-grid-gutter>
+  <grid-gutter></grid-gutter>
 </ClientOnly>
 
 ### Codes
@@ -149,7 +149,7 @@ so based on 12 Grids System, it divided the design area into 24 aliquots.
 
 ### Preview
 <ClientOnly>
-  <layout-grid-offset></layout-grid-offset>
+  <grid-offset></grid-offset>
 </ClientOnly>
 
 ### Codes

@@ -10,7 +10,7 @@ Semantic vector graphics.
 
 ## Examples
 <ClientOnly>
-  <general-icon></general-icon>
+  <icon-default></icon-default>
 </ClientOnly>
 
 ## Codes

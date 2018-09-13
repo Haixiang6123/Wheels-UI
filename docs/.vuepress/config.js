@@ -16,8 +16,7 @@ module.exports = {
                 title: 'General',
                 children: [
                     '/general/icon.md',
-                    '/general/button.md',
-                    '/general/button-group.md'
+                    '/general/button.md'
                 ]
             },
             {
@@ -32,6 +31,12 @@ module.exports = {
                 children: [
                     '/data-display/tabs.md',
                     '/data-display/popover.md'
+                ]
+            },
+            {
+                title: 'Data Entry',
+                children: [
+                    '/data-entry/input.md',
                 ]
             },
             {

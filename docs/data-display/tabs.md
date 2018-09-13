@@ -13,7 +13,7 @@ Tabs make it easy to switch between different views.
 
 ## Examples
 <ClientOnly>
-  <data-display-tabs></data-display-tabs>
+  <tabs-default></tabs-default>
 </ClientOnly>
 
 ## Codes

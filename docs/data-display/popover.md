@@ -14,7 +14,7 @@ A simple popup menu to provide extra information or operations.
 
 ### Preview
 <ClientOnly>
-  <data-display-popover></data-display-popover>
+  <popover-default></popover-default>
 </ClientOnly>
 
 ### Codes
@@ -51,7 +51,7 @@ A simple popup menu to provide extra information or operations.
 
 ## With Hover
 <ClientOnly>
-  <data-display-popover-hover></data-display-popover-hover>
+  <popover-hover></popover-hover>
 </ClientOnly>
 
 ## Codes
