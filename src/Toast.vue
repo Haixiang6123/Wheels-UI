@@ -112,6 +112,7 @@
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 999;
 
         &.position-top {
             top: 0;

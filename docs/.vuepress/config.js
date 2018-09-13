@@ -33,6 +33,12 @@ module.exports = {
                     '/data-display/tabs.md',
                     '/data-display/popover.md'
                 ]
+            },
+            {
+                title: 'Feedback',
+                children: [
+                    '/feedback/toast.md',
+                ]
             }
         ]
     }

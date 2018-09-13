@@ -56,7 +56,7 @@
     .demo-icon {
         .block {
             display: flex;
-            padding: 10px 0;
+            padding-top: 10px;
 
             .item {
                 flex-grow: 1;

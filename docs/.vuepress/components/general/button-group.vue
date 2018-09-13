@@ -22,6 +22,6 @@
 
 <style scoped lang="scss">
     .demo-button-group {
-        padding: 10px 0;
+        padding-top: 10px;
     }
 </style>

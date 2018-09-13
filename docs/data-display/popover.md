@@ -2,7 +2,7 @@
 title: Popover
 ---
 
-# Tabs
+# Popover
 
 The floating card popped by clicking or hovering.
 

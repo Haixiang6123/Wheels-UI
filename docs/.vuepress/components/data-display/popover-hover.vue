@@ -42,6 +42,6 @@
 
 <style scoped lang="scss">
     .popover {
-        padding: 10px 0;
+        padding-top: 10px;
     }
 </style>
