@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import Button from '../../../src/Button';
+    import Button from '../../../../src/Button';
     export default {
         components: {
             'w-button': Button

@@ -8,7 +8,7 @@ Common usages of Button is shown as followed.
 
 ## Examples
 <ClientOnly>
-  <demo-button></demo-button>
+  <general-button></general-button>
 </ClientOnly>
 
 ## Codes

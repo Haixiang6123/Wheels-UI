@@ -44,7 +44,7 @@
 </template>
 
 <script>
-    import Icon from '../../../src/Icon';
+    import Icon from '../../../../src/Icon';
     export default {
         components: {
             'w-icon': Icon

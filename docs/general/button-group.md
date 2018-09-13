@@ -10,7 +10,7 @@ Common usages of Button Group is shown as followed.
 
 ## Examples
 <ClientOnly>
-  <demo-button-group></demo-button-group>
+  <general-button-group></general-button-group>
 </ClientOnly>
 
 ## Codes
