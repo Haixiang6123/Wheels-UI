@@ -212,3 +212,19 @@ so based on 12 Grids System, it divided the design area into 24 aliquots.
     </w-col>
 </w-row>
 ```
+
+## Attributes
+
+### Row
+
+| Attributes | Description | Type | Default |
+|---|---|:---:|---|---|
+| align | The vertical alignment of the flex layout: `left`, `center` or `right` | String | `left` |
+| gutter | Spacing between grids | String/Number | 0 |
+
+### Col
+
+| Attributes | Description | Type | Default |
+|---|---|:---:|---|---|
+| span | Raster number of cells to occupy, 0 corresponds to `display: none` | String/Number | - |
+| offset | The number of cells to offset Col from the left | String/Number | 0 |

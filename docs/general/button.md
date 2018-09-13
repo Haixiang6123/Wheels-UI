@@ -23,5 +23,5 @@ Common usages of Button is shown as followed.
 | Attributes | Description | Type | Default |
 |---|---|:---:|---|---|
 | icon | Name of icon | String | - |
-| iconPosition | Position of icon | String | "left" |
+| iconPosition | Position of icon | String | `left` |
 | loading | If is showing loading icon | Boolean | false |
