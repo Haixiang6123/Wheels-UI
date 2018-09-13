@@ -2,12 +2,13 @@
     <transition name="slide">
         <div class="sider" v-if="visible">
             <slot></slot>
-            <button @click="visible = false">close</button>
+            <w-button @click="visible = false">close</w-button>
         </div>
     </transition>
 </template>
 
 <script>
+    import Button from './Button';
     export default {
         name: "w-sider",
         data() {
@@ -15,6 +16,9 @@
                 visible: true
             };
         },
+        components: {
+            'w-button': Button
+        }
     }
 </script>
 

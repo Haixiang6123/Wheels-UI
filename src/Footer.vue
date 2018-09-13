@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="w-footer">
         <slot></slot>
     </div>
 </template>
@@ -11,7 +11,7 @@
 </script>
 
 <style scoped lang="scss">
-    .footer {
+    .w-footer {
 
     }
 </style>

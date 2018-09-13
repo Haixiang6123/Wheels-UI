@@ -20,6 +20,12 @@ module.exports = {
                     '/general/button-group.md'
                 ]
             },
+            {
+                title: 'Layout',
+                children: [
+                    '/layout/demo-layout.md',
+                ]
+            },
         ]
     }
 }

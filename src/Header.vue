@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="w-header">
         <slot></slot>
     </div>
 </template>
@@ -11,7 +11,7 @@
 </script>
 
 <style scoped>
-    .header {
+    .w-header {
 
     }
 </style>
