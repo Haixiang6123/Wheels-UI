@@ -13,9 +13,11 @@ module.exports = {
                 ]
             },
             {
-                title: 'Components',
+                title: 'General',
                 children: [
-                    '/components/button.md'
+                    '/general/icon.md',
+                    '/general/button.md',
+                    '/general/button-group.md'
                 ]
             },
         ]

@@ -20,8 +20,8 @@ Common usages of Button is shown as followed.
 ```
 
 ## Attributes
-| Attributes | Description | Type | Optional Value | Default |
+| Attributes | Description | Type | Default |
 |---|---|:---:|---|---|
-| icon | Name of icon | String | - | - |
-| iconPosition | Position of icon | String | "left" / "right" | "left" |
-| loading | If is showing loading icon | Boolean | true / false | false |
+| icon | Name of icon | String | - |
+| iconPosition | Position of icon | String | "left" |
+| loading | If is showing loading icon | Boolean | false |
