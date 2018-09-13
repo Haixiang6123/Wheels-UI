@@ -23,7 +23,8 @@ module.exports = {
             {
                 title: 'Layout',
                 children: [
-                    '/layout/demo-layout.md',
+                    '/layout/layout.md',
+                    '/layout/grid.md',
                 ]
             },
         ]
