@@ -158,7 +158,7 @@
         padding: .5em 1em;
         border: 1px solid $border-color;
         border-radius: $border-radius;
-        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(0 0px 1px rgba(0, 0, 0, 0.5));
         background: white;
         max-width: 20em;
         word-break: break-all;
