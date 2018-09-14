@@ -33,17 +33,7 @@
 <body>
 
 <div id="app">
-    <w-button>ok</w-button>
-    aaa
-    <w-button disabled>Default</w-button>
-    <div style="padding: 50px;">
-        <w-collapse :single-selected="true" :selected.sync="selectedTab">
-            <w-collapse-item title="标题1" name="1">内容1</w-collapse-item>
-            <w-collapse-item title="标题2" name="2">内容2</w-collapse-item>
-            <w-collapse-item title="标题3" name="3">内容3</w-collapse-item>
-        </w-collapse>
-        {{ selectedTab }}
-    </div>
+    <w-cascader :source="dataSource"></w-cascader>
 </div>
 
 <script src="src/app.js"></script>
