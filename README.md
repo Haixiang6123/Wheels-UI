@@ -5,6 +5,15 @@ A project for building UI library based on Vue.js.
 
 ## Introduction
 
+Wheel UI is a great UI library based on Vue.js. 
+It provides some useful components. Very suitable for mobile and PC.
+
+## Features
+1. An enterprise-class UI design system for web applications.
+2. A set of high-quality Vue components out of the box.
+3. Written in ES6 with predictable static types.
+4. The whole package of development and design resources and tools.
+
 ## Get Started
 
 1. Add CSS styles
@@ -18,23 +27,6 @@ A project for building UI library based on Vue.js.
     ```
     
     This feature supports IE8+ browsers.
-    
-    You also need to set global variables in sass. This will be updated in the feature.
-    
-    ```scss
-    html {
-        --button-height: 32px;
-        --font-size: 14px;
-        --button-bg: white;
-        --button-active-bg: #eee;
-        --border-radius: 4px;
-        --color: #42B983;
-        --border-color: #42B983;
-        --border-color-hover: #42B983;
-    }
-    ```
-    
-    This feature supports IE15+ browsers.
     
 2. Install wheel-ui
     
@@ -50,26 +42,17 @@ A project for building UI library based on Vue.js.
     export default {
       name: 'app',
       components: {
-        HelloWorld,
-        'ow-button': Button
+        'w-button': Button
       }
     }
     ``` 
-    
-4. Import svg symbols
-
-    ```html
-    <script src="//at.alicdn.com/t/font_812986_j8n9iohqjd.js"></script>
-    ```
-
 ## Documentation
 
-## Questions
-
-## Issues
-
-## Changelog
-
-## Get In Touch
+The documentation is developed with [vuepress](https://vuepress.vuejs.org/). 
+All usages of components are included in this docs.
+Please check [this](https://haixiang6123.github.io/wheel-ui/) out.
 
 ## Contribution
+
+Your any contributions will help me to improve this UI library.
+I welcome all developers to join me.
