@@ -1,12 +1,8 @@
 <template>
     <div class="cascader">
-        <div class="trigger">
-            <slot></slot>
-        </div>
-        <div class="items">
-            <div v-for="item in source">
-                <w-cascader-items :sourceItem="item"></w-cascader-items>
-            </div>
+        <div class="trigger" @click="itemsVisible = !itemsVisible"></div>
+        <div v-if="itemsVisible" class="items">
+            <w-cascader-items :items="source"></w-cascader-items>
         </div>
     </div>
 </template>
@@ -21,6 +17,13 @@
                 type: Array
             }
         },
+        data() {
+            return {
+                itemsVisible: true,
+            }
+        },
+        computed: {
+        },
         components: {
             'w-cascader-items': CascaderItems
         }
@@ -31,5 +34,19 @@
     @import "var.scss";
 
     .cascader {
+        .trigger {
+            border: 1px solid red;
+            height: 32px;
+            width: 100px;
+        }
+
+        .items {
+            display: flex;
+            border: 2px solid green;
+            height: 200px;
+            .label {
+                flex-wrap: nowrap;
+            }
+        }
     }
 </style>
