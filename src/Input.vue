@@ -40,19 +40,13 @@
 </script>
 
 <style scoped lang="scss">
-    $height: 32px;
-    $border-color: #999;
-    $border-color-hover: #666;
-    $border-radius: 4px;
-    $font-size: 12px;
-    $box-shadow-color: rgba(0, 0, 0, 0.5);
-    $red: #F1453D;
+    @import "_var.scss";
     .wrapper {
         display: inline-flex;font-size: $font-size;align-items: center;
 
         > :not(:last-child) {margin-right: .5em}
 
-        > input {height: 32px;border: 1px solid $border-color;border-radius: $border-radius;padding: 0 8px;font-size: inherit;
+        > input {height: $input-height;border: 1px solid $border-color;border-radius: $border-radius;padding: 0 8px;font-size: inherit;
             &:hover {border-color: $border-color-hover;}
             &:focus {box-shadow: 0 0 1px $box-shadow-color;outline: none;}
             &[disabled], &[readonly] {border-color: #ccc;color: #bbb;cursor: not-allowed;}
