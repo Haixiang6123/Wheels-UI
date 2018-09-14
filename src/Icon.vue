@@ -18,6 +18,5 @@
     .w-icon {
         height: 1em;
         width: 1em;
-        fill: $color;
     }
 </style>

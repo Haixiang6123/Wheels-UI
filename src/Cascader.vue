@@ -1,8 +1,8 @@
 <template>
     <div class="cascader">
         <div class="trigger" @click="itemsVisible = !itemsVisible"></div>
-        <div v-if="itemsVisible" class="items">
-            <w-cascader-items :items="source"></w-cascader-items>
+        <div v-if="itemsVisible" :style="{height: itemsHeight}" class="items-wrapper">
+            <w-cascader-items :items="source" :items-height="itemsHeight"></w-cascader-items>
         </div>
     </div>
 </template>
@@ -15,6 +15,9 @@
         props: {
             source: {
                 type: Array
+            },
+            itemsHeight: {
+                type: String,
             }
         },
         data() {
@@ -34,16 +37,21 @@
     @import "var.scss";
 
     .cascader {
+        position: relative;
         .trigger {
             border: 1px solid red;
             height: 32px;
             width: 100px;
         }
 
-        .items {
+        .items-wrapper {
+            @include box-shadow;
+            position: absolute;
+            top: 100%;
+            left: 0;
             display: flex;
-            border: 2px solid green;
-            height: 200px;
+            background: white;
+            border-radius: $border-radius;
             .label {
                 flex-wrap: nowrap;
             }
