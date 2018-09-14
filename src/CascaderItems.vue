@@ -1,7 +1,7 @@
 <template>
     <div class="cascader-items" :style="{height: itemsHeight}">
         <div class="left">
-            <div class="label" v-for="item in items" @click="leftSelected = item">
+            <div class="label" v-for="(item, index) in items" :key="index" @click="leftSelected = item">
                 {{item.name}}
                 <w-icon class="icon" v-if="item.children" name="right"></w-icon>
             </div>
