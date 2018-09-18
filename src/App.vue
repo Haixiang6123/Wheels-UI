@@ -1,7 +1,12 @@
 <template>
     <div>
         <w-button>Hello</w-button>
-        <w-cascader items-height="200px" :source="dataSource"></w-cascader>
+        <w-cascader
+                items-height="200px"
+                :source="dataSource"
+                :selected="selected"
+                @update:selected="selected = $event">
+        </w-cascader>
     </div>
 </template>
 
@@ -13,6 +18,7 @@
         name: "app",
         data() {
             return {
+                selected: ['California'],
                 dataSource: [
                     {
                         name: 'California',
@@ -43,6 +49,11 @@
         components: {
             'w-button': Button,
             'w-cascader': Cascader
+        },
+        methods: {
+            onUpdate(newSelected) {
+                this.selected = newSelected;
+            }
         }
     }
 </script>

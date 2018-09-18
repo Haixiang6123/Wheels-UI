@@ -2,7 +2,12 @@
     <div class="cascader">
         <div class="trigger" @click="itemsVisible = !itemsVisible"></div>
         <div v-if="itemsVisible" :style="{height: itemsHeight}" class="items-wrapper">
-            <w-cascader-items :items="source" :items-height="itemsHeight"></w-cascader-items>
+            <w-cascader-items
+                    :items="source"
+                    :items-height="itemsHeight"
+                    :selected="selected"
+                    @update:selected="onUpdateSelected">
+            </w-cascader-items>
         </div>
     </div>
 </template>
@@ -18,6 +23,12 @@
             },
             itemsHeight: {
                 type: String,
+            },
+            selected: {
+                type: Array,
+                default: () => {
+                    return [];
+                }
             }
         },
         data() {
@@ -26,6 +37,11 @@
             }
         },
         computed: {
+        },
+        methods: {
+            onUpdateSelected(newSelected) {
+                this.$emit('update:selected', newSelected);
+            }
         },
         components: {
             'w-cascader-items': CascaderItems
