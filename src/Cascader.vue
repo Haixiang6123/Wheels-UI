@@ -1,12 +1,13 @@
 <template>
     <div class="cascader">
-        <div class="trigger" @click="itemsVisible = !itemsVisible"></div>
+        <div class="trigger" @click="itemsVisible = !itemsVisible">
+            {{this.selectedValue || '&nbsp;'}}
+        </div>
         <div v-if="itemsVisible" :style="{height: itemsHeight}" class="items-wrapper">
             <w-cascader-items
                     :items="source"
                     :items-height="itemsHeight"
-                    :selected="selected"
-                    @update:selected="onUpdateSelected">
+                    :selected.sync="selected">
             </w-cascader-items>
         </div>
     </div>
@@ -37,6 +38,9 @@
             }
         },
         computed: {
+            selectedValue() {
+                return this.selected.map((item) => item.name).join(' / ');
+            }
         },
         methods: {
             onUpdateSelected(newSelected) {
@@ -55,9 +59,15 @@
     .cascader {
         position: relative;
         .trigger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
             border: 1px solid red;
-            height: 32px;
-            width: 100px;
+            height: $input-height;
+            min-width: 1em;
+            border: 1px solid $border-color;
+            border-radius: $border-radius;
         }
 
         .items-wrapper {
@@ -68,6 +78,7 @@
             display: flex;
             background: white;
             border-radius: $border-radius;
+            margin-top: 8px;
             .label {
                 flex-wrap: nowrap;
             }
