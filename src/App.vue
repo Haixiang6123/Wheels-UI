@@ -2,8 +2,9 @@
     <div style="padding: 20px;">
         <w-cascader
                 items-height="200px"
-                :source="source"
-                :selected.sync="selected">
+                :source.sync="source"
+                :selected.sync="selected"
+                :load-data="loadData">
         </w-cascader>
     </div>
 </template>
@@ -15,26 +16,40 @@
     import db from './db';
 
     function ajax(parentId = 0) {
-        return db.filter((item) => item.parent_id === parentId);
+        return new Promise((success, fail) => {
+            setTimeout(() => {
+                let result = db.filter((item) => item.parent_id === parentId);
+                success(result);
+            }, 300);
+        })
     }
-
-    console.log(ajax());
 
     export default {
         name: "app",
         data() {
             return {
-                selected: ['California'],
-                source: ajax()
+                selected: [],
+                source: []
             }
+        },
+        created() {
+            ajax(0).then((result) => {
+                this.source = result.map((item) => {
+                    item.children = item.children || [];
+                    return item;
+                });
+            });
         },
         components: {
             'w-button': Button,
             'w-cascader': Cascader
         },
         methods: {
-            onUpdate(newSelected) {
-                this.selected = newSelected;
+            loadData(item, updateSource) {
+                let id = item.id;
+                ajax(id).then(result => {
+                    updateSource(result);
+                });
             }
         }
     }

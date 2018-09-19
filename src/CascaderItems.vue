@@ -46,12 +46,11 @@
         },
         computed: {
             rightItems() {
-                let currentSelected = this.selected[this.level];
-                if (currentSelected && currentSelected.children) {
-                    return currentSelected.children;
-                }
-                else {
-                    return null;
+                if (this.selected[this.level]) {
+                    let selected = this.items.filter((item) => item.name === this.selected[this.level].name);
+                    if (selected && selected[0].children && selected[0].children.length > 0) {
+                        return selected[0].children;
+                    }
                 }
             }
         },
@@ -80,10 +79,8 @@
         justify-content: flex-start;
         height: 100px;
         cursor: pointer;
-        &:hover {
-            background: $border-radius;
-        }
         .left {
+            box-sizing: border-box;
             overflow: auto;
             padding: 0.3em 0;
             height: 100%;
