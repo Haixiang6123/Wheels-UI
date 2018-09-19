@@ -2,9 +2,8 @@
     <div style="padding: 20px;">
         <w-cascader
                 items-height="200px"
-                :source="dataSource"
-                :selected="selected"
-                @update:selected="selected = $event">
+                :source="source"
+                :selected.sync="selected">
         </w-cascader>
     </div>
 </template>
@@ -13,36 +12,20 @@
     import Button from './Button';
     import Cascader from './Cascader';
 
+    import db from './db';
+
+    function ajax(parentId = 0) {
+        return db.filter((item) => item.parent_id === parentId);
+    }
+
+    console.log(ajax());
+
     export default {
         name: "app",
         data() {
             return {
                 selected: ['California'],
-                dataSource: [
-                    {
-                        name: 'California',
-                        children: [
-                            {name: 'Irvine', children: [{name: 'UCI'}]},
-                            {name: 'LosAngles', children: [{name: 'UCLA'}, {name: 'UCB'}]},
-                            {name: 'San Diego', children: [{name: 'UCSD'}]},
-                        ]
-                    },
-                    {
-                        name: 'Texas',
-                        children: [
-                            {name: 'El Paso', children: [{name: 'University 1'}]},
-                            {name: 'Fort Worth', children: [{name: 'University 1'}, {name: 'University 2'}]}
-                        ]
-                    },
-                    {
-                        name: 'Washington',
-                        children: [
-                            {name: 'Spokane', children: [{name: 'University 1'}]},
-                            {name: 'Tacoma', children: [{name: 'University 1'}, {name: 'University 2'}]},
-                            {name: 'Vancouver', children: [{name: 'University 1'}, {name: 'University 2'}]}
-                        ]
-                    }
-                ]
+                source: ajax()
             }
         },
         components: {

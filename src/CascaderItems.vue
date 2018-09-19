@@ -10,8 +10,8 @@
             <w-cascader-items
                     :items="rightItems"
                     :items-height="itemsHeight"
-                    :selected="selected"
                     :level="level + 1"
+                    :selected="selected"
                     @update:selected="onUpdateSelected">
             </w-cascader-items>
         </div>
@@ -79,7 +79,12 @@
         align-items: flex-start;
         justify-content: flex-start;
         height: 100px;
+        cursor: pointer;
+        &:hover {
+            background: $border-radius;
+        }
         .left {
+            overflow: auto;
             padding: 0.3em 0;
             height: 100%;
         }

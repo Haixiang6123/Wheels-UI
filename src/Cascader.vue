@@ -7,7 +7,8 @@
             <w-cascader-items
                     :items="source"
                     :items-height="itemsHeight"
-                    :selected.sync="selected">
+                    :selected="selected"
+                    @update:selected="onUpdateSelected">
             </w-cascader-items>
         </div>
     </div>

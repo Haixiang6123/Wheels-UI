@@ -50,7 +50,7 @@
 // new Vue({
 //     el: '#app',
 //     data: {
-//         dataSource: [
+//         source: [
 //             {
 //                 name: 'California',
 //                 children: [
