@@ -3,7 +3,14 @@
         <div class="left">
             <div class="label" v-for="(item, index) in items" :key="index" @click="onClickLabel(item)">
                 <span class="name">{{item.name}}</span>
-                <w-icon class="icon" v-if="rightArrowVisible(item)" name="right"></w-icon>
+                <span class="icons">
+                    <template v-if="item.name === loadingItem.name">
+                        <w-icon class="icon loading" name="loading"></w-icon>
+                    </template>
+                    <template v-else>
+                        <w-icon class="icon next" v-if="rightArrowVisible(item)" name="right"></w-icon>
+                    </template>
+                </span>
             </div>
         </div>
         <div v-if="rightItems" class="right">
@@ -12,6 +19,8 @@
                     :items-height="itemsHeight"
                     :level="level + 1"
                     :selected="selected"
+                    :loading-item="loadingItem"
+                    :load-data="loadData"
                     @update:selected="onUpdateSelected">
             </w-cascader-items>
         </div>
@@ -20,6 +29,7 @@
 
 <script>
     import Icon from './Icon';
+
     export default {
         name: "w-cascader-items",
         props: {
@@ -41,11 +51,14 @@
             },
             loadData: {
                 type: Function
+            },
+            loadingItem: {
+                type: Object,
+                default: () => ({})
             }
         },
         data() {
-            return {
-            };
+            return {};
         },
         computed: {
             rightItems() {
@@ -79,6 +92,7 @@
 
 <style scoped lang="scss">
     @import "var";
+
     .cascader-items {
         display: flex;
         align-items: flex-start;
@@ -107,9 +121,16 @@
             &:hover {
                 background: $grey;
             }
-            .icon {
+            .icons {
+                display: flex;
+                align-items: center;
                 margin-left: auto;
-                transform: scale(0.75);
+                .next {
+                    transform: scale(0.7);
+                }
+                .loading {
+                    animation: spin 2s infinite linear;
+                }
             }
         }
     }

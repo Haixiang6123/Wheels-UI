@@ -9,6 +9,7 @@
                     :items-height="itemsHeight"
                     :selected="selected"
                     :load-data="loadData"
+                    :loading-item="loadingItem"
                     @update:selected="onUpdateSelected">
             </w-cascader-items>
         </div>
@@ -40,7 +41,8 @@
         },
         data() {
             return {
-                itemsVisible: true
+                itemsVisible: true,
+                loadingItem: {}
             }
         },
         computed: {
@@ -56,7 +58,6 @@
                 this.itemsVisible = true;
             },
             close() {
-                console.log('closeme');
                 this.itemsVisible = false;
             },
             toggle() {
@@ -108,6 +109,7 @@
                 };
                 // Update callback function
                 let updateSource = (result) => {
+                    this.loadingItem = {};
                     let copy = JSON.parse(JSON.stringify(this.source));
                     let toUpdate = complex(copy, lastItem.id);
                     // Add children(new result) for the selected item
@@ -115,8 +117,9 @@
                     this.$emit('update:source', copy);
                 };
                 // Callback: Call the function that is passed from parent component
-                if (!lastItem.isLeaf) {
-                    this.loadData && this.loadData(lastItem, updateSource);
+                if (!lastItem.isLeaf && this.loadData) {
+                    this.loadData(lastItem, updateSource);
+                    this.loadingItem = lastItem;
                 }
             }
         },
@@ -132,7 +135,6 @@
     .cascader {
         display: inline-flex;
         position: relative;
-        border: 1px solid red;
         .trigger {
             display: inline-flex;
             align-items: center;
@@ -153,6 +155,7 @@
             background: white;
             border-radius: $border-radius;
             margin-top: 8px;
+            z-index: 1;
             .label {
                 flex-wrap: nowrap;
             }

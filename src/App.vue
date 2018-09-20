@@ -6,22 +6,6 @@
                 :selected.sync="selected"
                 :load-data="loadData">
         </w-cascader>
-        <w-cascader
-                items-height="200px"
-                :source.sync="source"
-                :selected.sync="selected"
-                :load-data="loadData">
-        </w-cascader>
-        <div style="margin-top: 200px">
-            <w-popover>
-                <template>
-                    <button>Click</button>
-                    <template slot="content">
-                        Content
-                    </template>
-                </template>
-            </w-popover>
-        </div>
     </div>
 </template>
 
@@ -29,7 +13,6 @@
     import Button from './Button';
     import Cascader from './Cascader';
     import Popover from './Popover';
-    import {removeListeners} from './click-outside';
 
     import db from './db';
 

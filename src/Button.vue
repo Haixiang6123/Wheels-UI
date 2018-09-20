@@ -37,16 +37,6 @@
 <style scoped lang="scss">
     @import "var";
 
-    @keyframes spin {
-        0% {
-            transform: rotate(0);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
     .w-button {
         font-size: $font-size;
         height: $button-height;
