@@ -1,6 +1,6 @@
 <template>
-    <div class="cascader">
-        <div class="trigger" @click="itemsVisible = !itemsVisible">
+    <div class="cascader" ref="cascader">
+        <div class="trigger" @click="toggle">
             {{this.selectedValue || '&nbsp;'}}
         </div>
         <div v-if="itemsVisible" :style="{height: itemsHeight}" class="items-wrapper">
@@ -39,7 +39,7 @@
         },
         data() {
             return {
-                itemsVisible: true,
+                itemsVisible: true
             }
         },
         computed: {
@@ -48,6 +48,34 @@
             }
         },
         methods: {
+            onClickDocument(e) {
+                let {cascader} = this.$refs;
+                let {target} = e;
+                if (cascader === target || cascader.contains(target)) {
+                    return;
+                }
+
+                this.close();
+            },
+            open() {
+                this.itemsVisible = true;
+                this.$nextTick(() => {
+                    document.addEventListener('click', this.onClickDocument);
+                });
+            },
+            close() {
+                this.itemsVisible = false;
+                document.removeEventListener('click', this.onClickDocument);
+            },
+            toggle() {
+
+                if (this.itemsVisible === true) {
+                    this.close();
+                }
+                else {
+                    this.open();
+                }
+            },
             onUpdateSelected(newSelected) {
                 this.$emit('update:selected', newSelected);
                 let lastItem = newSelected[newSelected.length - 1];
@@ -111,14 +139,16 @@
     @import "var.scss";
 
     .cascader {
+        display: inline-flex;
         position: relative;
+        border: 1px solid red;
         .trigger {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0 1em;
             height: $input-height;
-            min-width: 1em;
+            min-width: 5em;
             border: 1px solid $border-color;
             border-radius: $border-radius;
         }

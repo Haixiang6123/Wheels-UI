@@ -6,12 +6,23 @@
                 :selected.sync="selected"
                 :load-data="loadData">
         </w-cascader>
+        <div style="margin-top: 200px">
+            <w-popover>
+                <template>
+                    <button>Click</button>
+                    <template slot="content">
+                        Content
+                    </template>
+                </template>
+            </w-popover>
+        </div>
     </div>
 </template>
 
 <script>
     import Button from './Button';
     import Cascader from './Cascader';
+    import Popover from './Popover';
 
     import db from './db';
 
@@ -45,7 +56,8 @@
         },
         components: {
             'w-button': Button,
-            'w-cascader': Cascader
+            'w-cascader': Cascader,
+            'w-popover': Popover
         },
         methods: {
             loadData(item, updateSource) {

@@ -99,6 +99,7 @@
             display: flex;
             align-items: center;
             padding: .5em 1em;
+            white-space: nowrap;
             > .name {
                 margin-right: 1em;
                 user-select: none;
