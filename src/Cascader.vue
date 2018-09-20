@@ -8,6 +8,7 @@
                     :items="source"
                     :items-height="itemsHeight"
                     :selected="selected"
+                    :load-data="loadData"
                     @update:selected="onUpdateSelected">
             </w-cascader-items>
         </div>
@@ -95,7 +96,9 @@
                     this.$emit('update:source', copy);
                 };
                 // Callback: Call the function that is passed from parent component
-                this.loadData(lastItem, updateSource);
+                if (!lastItem.isLeaf) {
+                    this.loadData && this.loadData(lastItem, updateSource);
+                }
             }
         },
         components: {
