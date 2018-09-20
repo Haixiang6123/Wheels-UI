@@ -1,5 +1,5 @@
 <template>
-    <div class="cascader" ref="cascader">
+    <div class="cascader" ref="cascader" v-click-outside="close">
         <div class="trigger" @click="toggle">
             {{this.selectedValue || '&nbsp;'}}
         </div>
@@ -17,6 +17,7 @@
 
 <script>
     import CascaderItems from './CascaderItems';
+    import ClickOutside from './click-outside';
 
     export default {
         name: "w-cascader",
@@ -47,28 +48,18 @@
                 return this.selected.map((item) => item.name).join(' / ');
             }
         },
+        directives: {
+            ClickOutside
+        },
         methods: {
-            onClickDocument(e) {
-                let {cascader} = this.$refs;
-                let {target} = e;
-                if (cascader === target || cascader.contains(target)) {
-                    return;
-                }
-
-                this.close();
-            },
             open() {
                 this.itemsVisible = true;
-                this.$nextTick(() => {
-                    document.addEventListener('click', this.onClickDocument);
-                });
             },
             close() {
+                console.log('closeme');
                 this.itemsVisible = false;
-                document.removeEventListener('click', this.onClickDocument);
             },
             toggle() {
-
                 if (this.itemsVisible === true) {
                     this.close();
                 }
