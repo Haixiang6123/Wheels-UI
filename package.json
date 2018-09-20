@@ -4,9 +4,7 @@
   "description": "This is a UI library based on Vue.js",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npx parcel index.html --no-cache",
-    "dev-test": "parcel watch test/* --no-cache & karma start",
-    "test": "parcel build test/* --no-minify && karma start --single-run",
+    "test": "vue-cli-service test:unit",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "serve": "vue-cli-service serve",
