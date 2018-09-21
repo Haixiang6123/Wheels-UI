@@ -1,9 +1,10 @@
-const expect = chai.expect;
-import Vue from 'vue'
-import Input from '../../src/Input'
+import chai, {expect} from 'chai';
+import sinonChai from 'sinon-chai';
+import sinon from 'sinon';
+import {shallowMount, mount} from '@vue/test-utils';
+import Input from '@/Input';
 
-Vue.config.productionTip = false;
-Vue.config.devtools = false;
+chai.use(sinonChai);
 
 describe('Input', () => {
     it('Input exist.', () => {
@@ -11,70 +12,58 @@ describe('Input', () => {
     });
 
     describe('props', () => {
-        const Constructor = Vue.extend(Input);
-        let vm;
-
-        afterEach(function () {
-            vm.$destroy();
-        });
-
         it('Receive value parameter', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     value: '1234'
                 }
-            }).$mount();
+            });
 
-            const inputElement = vm.$el.querySelector('input');
-            expect(inputElement.value).to.equal('1234');
+            const inputElement = wrapper.find('input');
+            expect(inputElement.element.value).to.equal('1234');
         });
         it('Receive disabled parameter', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     disabled: true
                 }
-            }).$mount();
+            });
 
-            const inputElement = vm.$el.querySelector('input');
-            expect(inputElement.disabled).to.equal(true);
+            const inputElement = wrapper.find('input');
+            expect(inputElement.attributes().disabled).to.equal('disabled');
         });
         it('Receive readonly parameter', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     readonly: true
                 }
-            }).$mount();
+            });
 
-            const inputElement = vm.$el.querySelector('input');
-            expect(inputElement.readOnly).to.equal(true);
+            const inputElement = wrapper.find('input');
+            expect(inputElement.attributes().readonly).to.equal('readonly');
         });
         it('Receive error parameter', () => {
-            vm = new Constructor({
+            const wrapper = mount(Input, {
                 propsData: {
                     error: 'Error'
                 }
-            }).$mount();
+            });
 
-            const useElement = vm.$el.querySelector('use');
-            expect(useElement.getAttribute('xlink:href')).to.equal('#i-error');
-            const errorMessage = vm.$el.querySelector('.error-message');
-            expect(errorMessage.innerHTML).to.equal('Error');
+            const useElement = wrapper.find('use');
+            expect(useElement.attributes().href).to.equal('#i-error');
+            const errorMessage = wrapper.find('.error-message');
+            expect(errorMessage.text()).to.equal('Error');
         });
     });
 
     describe('Input event', () => {
-        const Constructor = Vue.extend(Input);
-        let vm;
-
-        afterEach(function () {
-            vm.$destroy();
-        });
-
         it('Support change/input/focus/blur event', () => {
             ['change', 'input', 'focus', 'focus']
                 .forEach((eventName) => {
-                    vm = new Constructor({}).$mount();
+                    const wrapper = mount(Input);
                     const callback = sinon.fake();
+
+                    const vm = wrapper.vm;
 
                     vm.$on(eventName, callback);
 
