@@ -40,6 +40,7 @@ module.exports = {
                 title: 'Data Entry',
                 children: [
                     '/data-entry/input.md',
+                    '/data-entry/cascader.md'
                 ]
             },
             {
