@@ -1,5 +1,10 @@
 <template>
-    <div class="w-carousel" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+    <div class="w-carousel"
+         @mouseenter="onMouseEnter"
+         @mouseleave="onMouseLeave"
+         @touchmove="onTouchMove"
+         @touchstart="onTouchStart"
+         @touchend="onTouchEnd">
         <div class="w-carousel-window" ref="window">
             <div class="w-carousel-wrapper">
                 <slot></slot>
@@ -8,9 +13,9 @@
         <!--Navigators-->
         <div class="w-carousel-navigators">
             <span
-                v-for="n in childrenLength"
-                :class="{active: selectedIndex === n - 1}"
-                @click="select(n - 1)">
+                    v-for="n in childrenLength"
+                    :class="{active: selectedIndex === n - 1}"
+                    @click="select(n - 1)">
                 {{n}}
             </span>
         </div>
@@ -33,7 +38,8 @@
             return {
                 childrenLength: 0,
                 lastSelectedIndex: undefined,
-                timeId: undefined
+                timeId: undefined,
+                startTouch: undefined
             }
         },
         computed: {
@@ -61,6 +67,42 @@
             this.updateChildren();
         },
         methods: {
+            onTouchStart(e) {
+                this.pause();
+                // Disable multi touch
+                if (e.touches.length > 1) {
+                    return;
+                }
+
+                this.startTouch = e.touches[0];
+            },
+            onTouchMove() {
+            },
+            onTouchEnd(e) {
+                let endTouch = e.changedTouches[0];
+
+                let {clientX: x1, clientY: y1} = this.startTouch;
+                let {clientX: x2, clientY: y2} = endTouch;
+
+
+                let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                let deltaY = Math.abs(y2 - y1);
+                let slope = distance / deltaY;
+
+                if (slope > Math.sqrt(2)) {
+                    if (x2 > x1) {
+                        // Next slide
+                        this.select(this.selectedIndex - 1);
+                    }
+                    else {
+                        // Previous slide
+                        this.select(this.selectedIndex + 1);
+                    }
+                }
+                this.$nextTick(() => {
+                    this.playAutomatically();
+                });
+            },
             onMouseEnter() {
                 this.pause();
             },
@@ -68,6 +110,13 @@
                 this.playAutomatically();
             },
             select(index) {
+                // Edge cases
+                if (index === -1) {
+                    index = this.names.length - 1;
+                }
+                if (index === this.names.length) {
+                    index = 0;
+                }
                 // Mark last selected item
                 this.lastSelectedIndex = this.selectedIndex;
                 this.$emit('update:selected', this.names[index]);
@@ -81,14 +130,6 @@
                 // Use setTimeout() to simulate setInterval()
                 let play = () => {
                     index++;
-
-                    // Edge cases
-                    if (index === -1) {
-                        index = this.names.length - 1;
-                    }
-                    if (index === this.names.length) {
-                        index = 0;
-                    }
 
                     this.select(index);
 
@@ -133,6 +174,7 @@
 
 <style scoped lang="scss">
     @import 'var.scss';
+
     .w-carousel {
         &-window {
             overflow: hidden;
