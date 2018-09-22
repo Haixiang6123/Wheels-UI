@@ -1,61 +1,52 @@
 <template>
     <div style="padding: 20px;">
-        <w-cascader
-                items-height="200px"
-                :source.sync="source"
-                :selected.sync="selected"
-                :load-data="loadData">
-        </w-cascader>
+        <w-slides class="wrapper" :selected.sync="selected">
+            <w-slides-item name="1">
+                <div class="box">0</div>
+            </w-slides-item>
+            <w-slides-item name="2">
+                <div class="box">1</div>
+            </w-slides-item>
+            <w-slides-item name="3">
+                <div class="box">2</div>
+            </w-slides-item>
+        </w-slides>
     </div>
 </template>
 
 <script>
-    import Cascader from './Cascader';
-
-    import db from './db';
-
-    function ajax(parentId = 0) {
-        return new Promise((success, fail) => {
-            setTimeout(() => {
-                let result = db.filter((item) => item.parent_id === parentId);
-                result.map(node => {
-                    node.isLeaf = db.filter(item => item.parent_id === node.id).length <= 0;
-                });
-                success(result);
-            }, 300);
-        })
-    }
+    import Slides from './Carousel';
+    import SlidesItem from './CarouselItem';
 
     export default {
-        name: "app",
+        name: 'app',
         data() {
             return {
-                selected: [],
-                source: []
+                selected: '3'
             }
-        },
-        created() {
-            ajax(0).then((result) => {
-                this.source = result.map((item) => {
-                    item.children = item.children || [];
-                    return item;
-                });
-            });
         },
         components: {
-            'w-cascader': Cascader,
-        },
-        methods: {
-            loadData(item, updateSource) {
-                let id = item.id;
-                ajax(id).then(result => {
-                    updateSource(result);
-                });
-            }
+            'w-slides': Slides,
+            'w-slides-item': SlidesItem
         }
     }
 </script>
 
 <style scoped lang="scss">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .wrapper {
+        display: block;
+    }
 
+    .box {
+        width: 100%;
+        height: 300px;
+        background: #ddd;
+        border: 1px solid red;
+    }
 </style>
