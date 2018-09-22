@@ -11,7 +11,7 @@
                 v-for="n in childrenLength"
                 :class="{active: selectedIndex === n - 1}"
                 @click="select(n - 1)">
-                {{n - 1}}
+                {{n}}
             </span>
         </div>
     </div>
@@ -82,6 +82,7 @@
                 let play = () => {
                     index++;
 
+                    // Edge cases
                     if (index === -1) {
                         index = this.names.length - 1;
                     }
@@ -108,18 +109,20 @@
             updateChildren() {
                 let selected = this.getSelected();
                 this.$children.forEach((vm) => {
-                    // Announce selected to children
                     let reverse = this.selectedIndex <= this.lastSelectedIndex;
-                    // Last one
-                    if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
-                        reverse = false;
-                    }
-                    if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
-                        reverse = true;
+                    if (this.timeId) {
+                        // Last one
+                        if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
+                            reverse = false;
+                        }
+                        if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+                            reverse = true;
+                        }
                     }
                     vm.reverse = reverse;
                     // Wait for next tick to do animation
                     this.$nextTick(() => {
+                        // Inform children that selected is changed
                         vm.selected = selected;
                     });
                 });
@@ -129,6 +132,7 @@
 </script>
 
 <style scoped lang="scss">
+    @import 'var.scss';
     .w-carousel {
         &-window {
             overflow: hidden;
@@ -137,9 +141,31 @@
             position: relative;
         }
         &-navigators {
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             > span {
+                margin: 0 8px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #ddd;
+                font-size: 12px;
+                color: white;
+                border: 1px solid white;
+                &:hover {
+                    cursor: pointer;
+                }
                 &.active {
-                    color: red;
+                    color: $color;
+                    border-color: $border-color;
+                    &:hover {
+                        cursor: default;
+                    }
                 }
             }
         }
