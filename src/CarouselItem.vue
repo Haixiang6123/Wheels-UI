@@ -55,8 +55,4 @@
         transform: translateX(100%) scale(0.5);
         opacity: 0;
     }
-    
-    .w-carousel-item {
-
-    }
 </style>

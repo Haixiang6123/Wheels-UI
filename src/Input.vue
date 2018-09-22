@@ -40,7 +40,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "_var.scss";
+    @import "var";
     .wrapper {
         display: inline-flex;font-size: $font-size;align-items: center;
 

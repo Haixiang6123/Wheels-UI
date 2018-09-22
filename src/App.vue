@@ -22,7 +22,7 @@
         name: 'app',
         data() {
             return {
-                selected: '3'
+                selected: '1'
             }
         },
         components: {
@@ -33,6 +33,8 @@
 </script>
 
 <style scoped lang="scss">
+    @import "var";
+
     * {
         margin: 0;
         padding: 0;
@@ -46,7 +48,11 @@
     .box {
         width: 100%;
         height: 300px;
-        background: #ddd;
-        border: 1px solid red;
+        background: $border-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        color: white;
     }
 </style>

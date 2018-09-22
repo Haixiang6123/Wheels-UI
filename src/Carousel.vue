@@ -1,5 +1,5 @@
 <template>
-    <div class="w-carousel">
+    <div class="w-carousel" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
         <div class="w-carousel-window" ref="window">
             <div class="w-carousel-wrapper">
                 <slot></slot>
@@ -32,7 +32,8 @@
         data() {
             return {
                 childrenLength: 0,
-                lastSelectedIndex: undefined
+                lastSelectedIndex: undefined,
+                timeId: undefined
             }
         },
         computed: {
@@ -60,17 +61,26 @@
             this.updateChildren();
         },
         methods: {
+            onMouseEnter() {
+                this.pause();
+            },
+            onMouseLeave() {
+                this.playAutomatically();
+            },
             select(index) {
                 // Mark last selected item
                 this.lastSelectedIndex = this.selectedIndex;
                 this.$emit('update:selected', this.names[index]);
             },
             playAutomatically() {
+                if (this.timeId) {
+                    return;
+                }
                 let index = this.names.indexOf(this.getSelected());
 
                 // Use setTimeout() to simulate setInterval()
                 let play = () => {
-                    index--;
+                    index++;
 
                     if (index === -1) {
                         index = this.names.length - 1;
@@ -81,10 +91,14 @@
 
                     this.select(index);
 
-                    setTimeout(play, 10000);
+                    this.timeId = setTimeout(play, 2000);
                 };
 
-                setTimeout(play, 10000);
+                this.timeId = setTimeout(play, 2000);
+            },
+            pause() {
+                window.clearTimeout(this.timeId);
+                this.timeId = undefined;
             },
             getSelected() {
                 let first = this.$children[0];
@@ -95,7 +109,15 @@
                 let selected = this.getSelected();
                 this.$children.forEach((vm) => {
                     // Announce selected to children
-                    vm.reverse = this.selectedIndex <= this.lastSelectedIndex;
+                    let reverse = this.selectedIndex <= this.lastSelectedIndex;
+                    // Last one
+                    if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
+                        reverse = false;
+                    }
+                    if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+                        reverse = true;
+                    }
+                    vm.reverse = reverse;
                     // Wait for next tick to do animation
                     this.$nextTick(() => {
                         vm.selected = selected;
