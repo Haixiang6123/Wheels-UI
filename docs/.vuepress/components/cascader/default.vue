@@ -1,9 +1,10 @@
 <template>
-    <div style="padding: 20px;">
+    <div class="cascader">
         <w-cascader
                 items-height="200px"
                 :source.sync="source"
-                :selected.sync="selected">
+                :selected.sync="selected"
+                :load-data="loadData">
         </w-cascader>
     </div>
 </template>
@@ -11,44 +12,52 @@
 <script>
     import Cascader from '../../../../src/Cascader';
 
+    import db from './db';
+
+    function ajax(parentId = 0) {
+        return new Promise((success, fail) => {
+            setTimeout(() => {
+                let result = db.filter((item) => item.parent_id === parentId);
+                result.map(node => {
+                    node.isLeaf = db.filter(item => item.parent_id === node.id).length <= 0;
+                });
+                success(result);
+            }, 300);
+        })
+    }
+
     export default {
-        name: "w-cascader",
+        name: "app",
         data() {
             return {
                 selected: [],
-                source: [
-                    {
-                        name: 'California',
-                        children: [
-                            {name: 'Irvine', children: [{name: 'UCI'}]},
-                            {name: 'LosAngles', children: [{name: 'UCLA'}, {name: 'UCB'}]},
-                            {name: 'San Diego', children: [{name: 'UCSD'}]},
-                        ]
-                    },
-                    {
-                        name: 'Texas',
-                        children: [
-                            {name: 'El Paso', children: [{name: 'University 1'}]},
-                            {name: 'Fort Worth', children: [{name: 'University 1'}, {name: 'University 2'}]}
-                        ]
-                    },
-                    {
-                        name: 'Washington',
-                        children: [
-                            {name: 'Spokane', children: [{name: 'University 1'}]},
-                            {name: 'Tacoma', children: [{name: 'University 1'}, {name: 'University 2'}]},
-                            {name: 'Vancouver', children: [{name: 'University 1'}, {name: 'University 2'}]}
-                        ]
-                    }
-                ]
+                source: []
             }
+        },
+        created() {
+            ajax(0).then((result) => {
+                this.source = result.map((item) => {
+                    item.children = item.children || [];
+                    return item;
+                });
+            });
         },
         components: {
             'w-cascader': Cascader,
+        },
+        methods: {
+            loadData(item, updateSource) {
+                let id = item.id;
+                ajax(id).then(result => {
+                    updateSource(result);
+                });
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
-
+    .cascader {
+        margin: 20px 0 100px;
+    }
 </style>

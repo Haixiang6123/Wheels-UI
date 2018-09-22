@@ -10,9 +10,7 @@
 </template>
 
 <script>
-    import Button from './Button';
     import Cascader from './Cascader';
-    import Popover from './Popover';
 
     import db from './db';
 
@@ -45,9 +43,7 @@
             });
         },
         components: {
-            'w-button': Button,
             'w-cascader': Cascader,
-            'w-popover': Popover
         },
         methods: {
             loadData(item, updateSource) {
