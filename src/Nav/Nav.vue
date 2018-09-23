@@ -7,6 +7,11 @@
 <script>
     export default {
         name: "w-nav",
+        provide() {
+            return {
+                root: this
+            }
+        },
         props: {
             selected: {
                 type: Array,
@@ -17,12 +22,15 @@
                 default: false
             }
         },
-        computed: {
-            items() {
-                return this.$children.filter(vm => vm.$options.name === 'w-nav-item');
+        data() {
+            return {
+                items: []
             }
         },
         methods: {
+            addItem(vm) {
+                this.items.push(vm);
+            },
             updateChildren() {
                 this.items.forEach((vm => {
                     vm.selected = this.selected.indexOf(vm.name) >= 0;

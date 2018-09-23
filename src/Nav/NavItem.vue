@@ -7,6 +7,7 @@
 <script>
     export default {
         name: "w-nav-item",
+        inject: ['root'],
         props: {
             name: {
                 type: String,
@@ -22,6 +23,9 @@
             onClick() {
                 this.$emit('add:selected', this.name);
             }
+        },
+        created() {
+            this.root.addItem(this);
         }
     }
 </script>

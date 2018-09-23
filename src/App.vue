@@ -1,9 +1,14 @@
 <template>
     <div style="padding: 20px;">
-        <w-nav :selected.sync="selected" >
-            <w-nav-item name="Home">Home</w-nav-item>
-            <w-nav-item name="About">About</w-nav-item>
-            <w-nav-item name="Career">Career</w-nav-item>
+        <w-nav :selected.sync="selected">
+            <w-nav-item name="home">Home</w-nav-item>
+            <w-sub-nav>
+                <template slot="title">About</template>
+                <w-nav-item name="culture">Culture</w-nav-item>
+                <w-nav-item name="developers">Developers</w-nav-item>
+                <w-nav-item name="contact">Contact</w-nav-item>
+            </w-sub-nav>
+            <w-nav-item name="career">Career</w-nav-item>
         </w-nav>
     </div>
 </template>
@@ -17,7 +22,7 @@
         name: 'app',
         data() {
             return {
-                selected: ['Home']
+                selected: ['culture']
             }
         },
         components: {
