@@ -198,7 +198,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import '../var';
+    @import 'var';
 
     .w-carousel {
         &-window {

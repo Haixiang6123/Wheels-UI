@@ -35,7 +35,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../var";
+    @import "var";
 
     .w-button {
         font-size: $font-size;
