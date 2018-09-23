@@ -70,8 +70,11 @@
 </script>
 
 <style scoped lang="scss">
+    @import 'var';
     .w-nav {
         display: flex;
-        border: 1px solid red;
+        border-bottom: 1px solid grey;
+        color: $grey;
+        cursor: default;
     }
 </style>

@@ -7,10 +7,12 @@ $button-bg: white;
 $button-height: 32px;
 $color: #42B983;
 $font-size: 14px;
+$small-font-size: 12px;
 $input-height: 32px;
-
 $red: #F1453D;
-$grey: #eee;
+$grey: #333;
+$medium-grey: #666;
+$light-grey: #eee;
 
 @mixin box-shadow() {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);

@@ -107,7 +107,7 @@
         }
         .right {
             height: 100%;
-            border-left: 1px solid $grey;
+            border-left: 1px solid $light-grey;
         }
         .label {
             display: flex;
@@ -119,7 +119,7 @@
                 user-select: none;
             }
             &:hover {
-                background: $grey;
+                background: $light-grey;
             }
             .icons {
                 display: flex;

@@ -26,6 +26,8 @@
 </script>
 
 <style scoped lang="scss">
+    @import "var";
+
     .w-sub-nav {
         position: relative;
         > span {
@@ -33,11 +35,18 @@
             padding: 10px 20px;
         }
         &-content {
+            margin-top: 1px;
             position: absolute;
             top: 100%;
             left: 0;
-            border: 1px solid black;
+            border: 1px solid #ddd;
+            border-radius: $border-radius;
             white-space: nowrap;
+            background: white;
+            box-shadow: 0 0 3px $light-grey;
+            color: $medium-grey;
+            font-size: $font-size;
+            min-width: 6em;
         }
     }
 
