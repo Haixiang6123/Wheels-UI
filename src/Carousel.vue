@@ -2,7 +2,6 @@
     <div class="w-carousel"
          @mouseenter="onMouseEnter"
          @mouseleave="onMouseLeave"
-         @touchmove="onTouchMove"
          @touchstart="onTouchStart"
          @touchend="onTouchEnd">
         <div class="w-carousel-window" ref="window">
@@ -103,8 +102,6 @@
                 }
 
                 this.startTouch = e.touches[0];
-            },
-            onTouchMove() {
             },
             onTouchEnd(e) {
                 let endTouch = e.changedTouches[0];

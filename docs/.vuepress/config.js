@@ -33,7 +33,8 @@ module.exports = {
                 title: 'Data Display',
                 children: [
                     '/data-display/tabs.md',
-                    '/data-display/popover.md'
+                    '/data-display/popover.md',
+                    '/data-display/carousel.md'
                 ]
             },
             {

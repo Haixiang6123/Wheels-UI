@@ -15,11 +15,11 @@
 </template>
 
 <script>
-    import Slides from './Carousel';
-    import SlidesItem from './CarouselItem';
+    import Slides from '../../../../src/Carousel';
+    import SlidesItem from '../../../../src/CarouselItem';
 
     export default {
-        name: 'app',
+        name: 'default',
         data() {
             return {
                 selected: '1'
@@ -33,14 +33,14 @@
 </script>
 
 <style scoped lang="scss">
-    @import "var";
+    $border-color: #42B983;
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-    
+
     .wrapper {
         display: block;
     }
