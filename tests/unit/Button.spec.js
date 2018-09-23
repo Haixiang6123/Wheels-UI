@@ -2,7 +2,7 @@ import chai, {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import {shallowMount, mount} from '@vue/test-utils';
-import Button from '@/Button.vue';
+import Button from '../../src/Button/Button.vue';
 
 chai.use(sinonChai);
 

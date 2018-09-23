@@ -18,7 +18,7 @@
 
 <script>
     import CascaderItems from './CascaderItems';
-    import ClickOutside from './click-outside';
+    import ClickOutside from '../click-outside';
 
     export default {
         name: "w-cascader",
@@ -130,7 +130,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "var.scss";
+    @import "var";
 
     .cascader {
         display: inline-flex;

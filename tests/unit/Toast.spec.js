@@ -2,7 +2,7 @@ import chai, {expect} from 'chai';
 import sinon from 'sinon';
 import {shallowMount, mount} from '@vue/test-utils';
 import Vue from 'vue'
-import Toast from '@/Toast';
+import Toast from '../../src/Toast/Toast';
 
 describe('Toast', () => {
     it('exist.', () => {

@@ -3,11 +3,11 @@ import sinonChai from 'sinon-chai';
 import {shallowMount, mount} from '@vue/test-utils';
 
 import Vue from 'vue'
-import Tabs from '../../src/Tabs';
-import TabsHead from '../../src/TabsHead';
-import TabsItem from '../../src/TabsItem';
-import TabsBody from '../../src/TabsBody';
-import TabsPane from '../../src/TabsPane';
+import Tabs from '../../src/Tabs/Tabs';
+import TabsHead from '../../src/Tabs/TabsHead';
+import TabsItem from '../../src/Tabs/TabsItem';
+import TabsBody from '../../src/Tabs/TabsBody';
+import TabsPane from '../../src/Tabs/TabsPane';
 
 Vue.component('w-tabs', Tabs);
 Vue.component('w-tabs-head', TabsHead);

@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import TabsBody from '@/TabsBody';
+import TabsBody from '../../src/Tabs/TabsBody';
 
 describe('TabsBody', () => {
     it('exist.', () => {

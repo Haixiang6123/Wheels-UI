@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
 import sinonChai from 'sinon-chai';
 import {shallowMount, mount} from '@vue/test-utils';
-import Col from '@/Col';
+import Col from '../../src/Grid/Col';
 
 chai.use(sinonChai);
 

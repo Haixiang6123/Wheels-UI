@@ -2,8 +2,8 @@ import chai, {expect} from 'chai';
 import sinonChai from 'sinon-chai';
 import {shallowMount, mount} from '@vue/test-utils';
 import Vue from 'vue';
-import Row from '@/Row';
-import Col from '@/Col';
+import Row from '../../src/Grid/Row';
+import Col from '../../src/Grid/Col';
 
 chai.use(sinonChai);
 

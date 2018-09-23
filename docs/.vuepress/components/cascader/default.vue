@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Cascader from '../../../../src/Cascader';
+    import Cascader from '../../../../src/Cascader/Cascader';
 
     import db from './db';
 

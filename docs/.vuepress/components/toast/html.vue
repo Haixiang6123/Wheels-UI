@@ -6,7 +6,7 @@
 
 <script>
     import Vue from 'vue';
-    import Toast from '../../../../src/Toast';
+    import Toast from '../../../../src/Toast/Toast';
     import Button from '../../../../src/Button/Button';
     import plugin from '../../../../src/plugin';
 

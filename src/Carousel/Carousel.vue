@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import Icon from './Icon';
+    import Icon from '../Icon/Icon';
 
     export default {
         name: "w-carousel",
@@ -198,7 +198,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import 'var.scss';
+    @import '../var';
 
     .w-carousel {
         &-window {

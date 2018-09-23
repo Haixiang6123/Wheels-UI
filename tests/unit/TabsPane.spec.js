@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import TabsPane from '@/TabsPane';
+import TabsPane from '../../src/Tabs/TabsPane';
 
 describe('TabsPane', () => {
     it('exist.', () => {

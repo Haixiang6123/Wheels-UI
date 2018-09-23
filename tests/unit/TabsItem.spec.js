@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import chai, {expect} from 'chai';
 import {mount} from '@vue/test-utils';
-import TabsItem from '@/TabsItem';
+import TabsItem from '../../src/Tabs/TabsItem';
 
 describe('TabsItem', () => {
     it('exist.', () => {

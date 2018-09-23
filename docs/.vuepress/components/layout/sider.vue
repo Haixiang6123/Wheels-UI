@@ -39,11 +39,11 @@
 </template>
 
 <script>
-    import Layout from '../../../../src/Layout';
-    import Header from '../../../../src/Header';
-    import Content from '../../../../src/Content';
-    import Footer from '../../../../src/Footer';
-    import Sider from '../../../../src/Sider';
+    import Layout from '../../../../src/Layout/Layout';
+    import Header from '../../../../src/Layout/Header';
+    import Content from '../../../../src/Layout/Content';
+    import Footer from '../../../../src/Layout/Footer';
+    import Sider from '../../../../src/Layout/Sider';
     export default {
         components: {
             'w-layout': Layout,

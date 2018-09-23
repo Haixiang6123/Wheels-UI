@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import Icon from './Icon';
+    import Icon from '../Icon/Icon';
 
     export default {
         name: "w-input",
@@ -40,7 +40,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "var";
+    @import "../var";
     .wrapper {
         display: inline-flex;font-size: $font-size;align-items: center;
 

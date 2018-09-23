@@ -3,8 +3,8 @@ import chai, {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import {mount} from '@vue/test-utils';
-import Carousel from '@/Carousel.vue';
-import CarouselItem from '@/CarouselItem.vue';
+import Carousel from '../../src/Carousel/Carousel.vue';
+import CarouselItem from '../../src/Carousel/CarouselItem.vue';
 
 chai.use(sinonChai);
 

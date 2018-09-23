@@ -15,8 +15,8 @@
 </template>
 
 <script>
-    import Slides from '../../../../src/Carousel';
-    import SlidesItem from '../../../../src/CarouselItem';
+    import Slides from '../../../../src/Carousel/Carousel';
+    import SlidesItem from '../../../../src/Carousel/CarouselItem';
 
     export default {
         name: 'default',

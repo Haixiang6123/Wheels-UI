@@ -15,8 +15,8 @@
 </template>
 
 <script>
-    import Slides from './Carousel';
-    import SlidesItem from './CarouselItem';
+    import Slides from './Carousel/Carousel';
+    import SlidesItem from './Carousel/CarouselItem';
 
     export default {
         name: 'app',

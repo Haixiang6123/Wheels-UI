@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Icon from '../Icon';
+    import Icon from '../Icon/Icon';
 
     export default {
         name: "w-button",
@@ -35,7 +35,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "var";
+    @import "../var";
 
     .w-button {
         font-size: $font-size;

@@ -18,11 +18,11 @@
 </template>
 
 <script>
-    import Tabs from '../../../../src/Tabs';
-    import TabsItem from '../../../../src/TabsItem';
-    import TabsPane from '../../../../src/TabsPane';
-    import TabsHead from '../../../../src/TabsHead';
-    import TabsBody from '../../../../src/TabsBody';
+    import Tabs from '../../../../src/Tabs/Tabs';
+    import TabsItem from '../../../../src/Tabs/TabsItem';
+    import TabsPane from '../../../../src/Tabs/TabsPane';
+    import TabsHead from '../../../../src/Tabs/TabsHead';
+    import TabsBody from '../../../../src/Tabs/TabsBody';
     export default {
         name: "tabs",
         data() {
