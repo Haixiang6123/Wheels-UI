@@ -59,7 +59,7 @@
                 })
             }
         },
-        destroyed() {
+        beforeDestroy() {
             // Click event
             if (this.trigger === 'click') {
                 this.$refs.popover.removeEventListener('click', this.onClick);
