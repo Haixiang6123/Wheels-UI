@@ -1,8 +1,15 @@
 <template>
     <div class="w-sub-nav" :class="{active}" v-click-outside="close">
-        <span @click="onClick">
+        <!--Title-->
+        <span class="w-sub-nav-title-wrapper" @click="onClick">
             <slot name="title"></slot>
+            <!--Indicator-->
+            <span class="w-sub-nav-icon" :class="{open}">
+                <w-icon color="#666" name="right"></w-icon>
+            </span>
         </span>
+
+        <!--Content-->
         <div v-show="open" class="w-sub-nav-content">
             <slot></slot>
         </div>
@@ -10,7 +17,9 @@
 </template>
 
 <script>
+    import Icon from '../Icon/Icon';
     import ClickOutside from '../click-outside';
+
     export default {
         name: "w-sub-nav",
         inject: ['root'],
@@ -32,6 +41,9 @@
         },
         directives: {
             ClickOutside
+        },
+        components: {
+            'w-icon': Icon
         },
         methods: {
             onClick() {
@@ -67,9 +79,12 @@
                 width: 100%;
             }
         }
-        > span {
+        &-title-wrapper {
             display: block;
             padding: 10px 20px;
+        }
+        &-icon {
+            display: none;
         }
         &-content {
             margin-top: 1px;
@@ -87,9 +102,34 @@
         }
     }
 
-    .w-sub-nav .w-sub-nav .w-sub-nav-content {
-        top: 0;
-        left: 100%;
-        margin-left: 8px;
+    .w-sub-nav .w-sub-nav {
+        &.active {
+            &::after {
+                display: none;
+            }
+        }
+        .w-sub-nav-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .w-sub-nav-content {
+            top: 0;
+            left: 100%;
+            margin-left: 8px;
+        }
+        .w-sub-nav-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .w-sub-nav-icon {
+            display: inline-flex;
+            align-items: center;
+            transition: transform 300ms;
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
     }
 </style>

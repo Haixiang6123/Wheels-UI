@@ -77,5 +77,6 @@
         border-bottom: 1px solid grey;
         color: $grey;
         cursor: default;
+        user-select: none;
     }
 </style>

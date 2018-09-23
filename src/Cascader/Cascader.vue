@@ -156,7 +156,7 @@
             border-radius: $border-radius;
             margin-top: 8px;
             z-index: 1;
-            .label {
+            .title-wrapper {
                 flex-wrap: nowrap;
             }
         }

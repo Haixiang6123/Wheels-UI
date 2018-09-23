@@ -1,7 +1,7 @@
 <template>
     <div class="cascader-items" :style="{height: itemsHeight}">
         <div class="left">
-            <div class="label" v-for="(item, index) in items" :key="index" @click="onClickLabel(item)">
+            <div class="title-wrapper" v-for="(item, index) in items" :key="index" @click="onClickLabel(item)">
                 <span class="name">{{item.name}}</span>
                 <span class="icons">
                     <template v-if="item.name === loadingItem.name">
@@ -109,7 +109,7 @@
             height: 100%;
             border-left: 1px solid $light-grey;
         }
-        .label {
+        .title-wrapper {
             display: flex;
             align-items: center;
             padding: .5em 1em;
