@@ -7,7 +7,7 @@
 <script>
     import Vue from 'vue';
     import Toast from '../../../../src/Toast';
-    import Button from '../../../../src/Button';
+    import Button from '../../../../src/Button/Button';
     import plugin from '../../../../src/plugin';
 
     Vue.use(plugin);

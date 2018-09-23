@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import Button from './Button';
+    import Button from './Button/Button';
     export default {
         name: "w-sider",
         data() {

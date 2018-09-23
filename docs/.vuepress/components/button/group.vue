@@ -9,8 +9,8 @@
 </template>
 
 <script>
-    import Button from '../../../../src/Button';
-    import ButtonGroup from '../../../../src/ButtonGroup';
+    import Button from '../../../../src/Button/Button';
+    import ButtonGroup from '../../../../src/Button/ButtonGroup';
     export default {
         name: "button-group-demo",
         components: {

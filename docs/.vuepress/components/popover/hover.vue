@@ -29,7 +29,7 @@
 
 <script>
     import Popover from '../../../../src/Popover';
-    import Button from '../../../../src/Button';
+    import Button from '../../../../src/Button/Button';
 
     export default {
         name: "popover",
