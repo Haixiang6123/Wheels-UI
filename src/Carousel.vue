@@ -16,6 +16,8 @@
                 <w-icon color="#42B983" name="up"></w-icon>
             </span>
             <span
+                :key="n"
+                :data-index="n-1"
                 v-for="n in childrenLength"
                 :class="{active: selectedIndex === n - 1}"
                 @click="select(n - 1)">
@@ -30,6 +32,7 @@
 
 <script>
     import Icon from './Icon';
+
     export default {
         name: "w-carousel",
         props: {
@@ -39,6 +42,10 @@
             autoPlay: {
                 type: Boolean,
                 default: true
+            },
+            autoPlayDelay: {
+                type: Number,
+                default: 3000
             }
         },
         data() {
@@ -68,7 +75,9 @@
             this.updateChildren();
 
             // Start auto play
-            this.autoPlay && this.playAutomatically();
+            if (this.autoPlay) {
+                this.playAutomatically();
+            }
 
             // Get navigators
             this.childrenLength = this.items.length;
@@ -152,10 +161,10 @@
 
                     this.select(index);
 
-                    this.timeId = setTimeout(play, 2000);
+                    this.timeId = setTimeout(play, this.autoPlayDelay);
                 };
 
-                this.timeId = setTimeout(play, 2000);
+                this.timeId = setTimeout(play, this.autoPlayDelay);
             },
             pause() {
                 window.clearTimeout(this.timeId);
