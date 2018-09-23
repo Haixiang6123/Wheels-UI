@@ -21,6 +21,8 @@
         },
         methods: {
             onClick() {
+                this.root.namePath = [];
+                this.$parent.updateNamePath && this.$parent.updateNamePath();
                 this.$emit('add:selected', this.name);
             }
         },
@@ -49,7 +51,7 @@
     }
 
     .w-sub-nav .w-nav-item {
-        &.selected {
+        &.selected, &:hover {
             background: $light-grey;
             color: $grey;
             &::after {

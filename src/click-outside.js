@@ -19,10 +19,3 @@ export default {
         callbacks.push({el, callback: binding.value});
     }
 }
-let removeListeners = () => {
-    document.removeEventListener('click', onClickDocument);
-};
-
-export {
-    removeListeners
-}
