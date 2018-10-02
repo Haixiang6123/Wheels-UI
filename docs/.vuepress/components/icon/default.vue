@@ -4,15 +4,15 @@
 
         <div class="alerts block">
             <div class="item">
-                <w-icon name="info"/>
+                <w-icon color="#42B983" name="info"/>
                 <span class="name">info</span>
             </div>
             <div class="item">
-                <w-icon name="error"/>
+                <w-icon color="#42B983" name="error"/>
                 <span class="name">error</span>
             </div>
             <div class="item">
-                <w-icon name="success"/>
+                <w-icon color="#42B983" name="success"/>
                 <span class="name">success</span>
             </div>
         </div>
@@ -20,23 +20,23 @@
         <h3>General</h3>
         <div class="general block">
             <div class="item">
-                <w-icon name="remove"/>
+                <w-icon color="#42B983"  name="remove"/>
                 <span class="name">remove</span>
             </div>
             <div class="item">
-                <w-icon name="settings"/>
+                <w-icon color="#42B983"  name="settings"/>
                 <span class="name">settings</span>
             </div>
             <div class="item">
-                <w-icon name="loading"/>
+                <w-icon color="#42B983"  name="loading"/>
                 <span class="name">loading</span>
             </div>
             <div class="item">
-                <w-icon name="download"/>
+                <w-icon color="#42B983"  name="download"/>
                 <span class="name">download</span>
             </div>
             <div class="item">
-                <w-icon name="thumbs-up"/>
+                <w-icon color="#42B983"  name="thumbs-up"/>
                 <span class="name">thumbs-up</span>
             </div>
         </div>
