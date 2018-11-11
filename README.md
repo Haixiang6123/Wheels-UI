@@ -5,7 +5,7 @@ A project for building UI library based on Vue.js.
 
 ## Demo
 
-[Click here to see th demo](https://haixiang6123.github.io/wheel-ui/)
+[Click here to see the demo](https://haixiang6123.github.io/wheel-ui/)
 
 ## Introduction
 
